@@ -8,27 +8,14 @@ import {
   Sofa,
   ArrowRight,
   Star,
+  Timer,
 } from "lucide-react";
 
 export default function Home() {
-  const isMenuOpen = false;
 
-  const categories = [
-    "Cocina",
-    "Sala",
-    "Habitación",
-    "Ofertas",
-    "Decoración",
-    "Exteriores",
-  ];
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      {/* Navigation Bar */}
-      <nav className="w-full px-6 py-4 bg-white border-b border-neutral-100 sticky top-0 z-50">
-        {/* ... (previous nav code remains the same) ... */}
-      </nav>
-
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
@@ -94,6 +81,98 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </section>
+
+        {/* Featured Offers Section */}
+        <section className="mt-16">
+          <div className="flex justify-between items-end mb-8">
+            <div>
+              <h2 className="text-2xl font-medium text-neutral-900">
+                Ofertas destacadas
+              </h2>
+              <p className="mt-1 text-neutral-600">
+                ¡No te pierdas estas ofertas por tiempo limitado!
+              </p>
+            </div>
+            <button className="text-neutral-900 flex items-center space-x-2 group">
+              <span>Ver todas las ofertas</span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Set de Comedor Escandinavo",
+                originalPrice: "2,499",
+                discountedPrice: "1,899",
+                discount: "24%",
+                timeLeft: "2 días",
+                image:
+                  "https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=800",
+                description: "Mesa + 6 sillas en roble natural",
+              },
+              {
+                name: "Conjunto de Sala Premium",
+                originalPrice: "3,299",
+                discountedPrice: "2,499",
+                discount: "32%",
+                timeLeft: "3 días",
+                image:
+                  "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800",
+                description: "Sofá 3 plazas + 2 sillones + mesa de centro",
+              },
+            ].map((offer) => (
+              <div
+                key={offer.name}
+                className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col md:flex-row h-full">
+                  <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto">
+                    <img
+                      src={offer.image}
+                      alt={offer.name}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      -{offer.discount}
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col justify-between w-full md:w-3/5">
+                    <div>
+                      <h3 className="text-xl font-medium text-neutral-900">
+                        {offer.name}
+                      </h3>
+                      <p className="mt-2 text-neutral-600">
+                        {offer.description}
+                      </p>
+                      <div className="mt-4 flex items-center space-x-3">
+                        <span className="text-2xl font-medium text-neutral-900">
+                          ${offer.discountedPrice}
+                        </span>
+                        <span className="text-lg text-neutral-400 line-through">
+                          ${offer.originalPrice}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-6 flex items-center justify-between">
+                      <div className="flex items-center space-x-2 text-neutral-600">
+                        <Timer className="h-5 w-5" />
+                        <span>Termina en {offer.timeLeft}</span>
+                      </div>
+                      <button
+                        className="px-6 py-2 bg-neutral-900 text-white rounded-full
+                                 hover:bg-neutral-800 transition-colors flex items-center space-x-2"
+                      >
+                        <ShoppingBag className="h-4 w-4" />
+                        <span>Comprar</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Featured Products */}
