@@ -119,9 +119,11 @@ export default function Home() {
               >
                 <div className="flex flex-col md:flex-row h-full">
                   <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto">
-                    <Image
+                    <img
                       src={offer.image}
                       alt={offer.name}
+                      width={800}
+                      height={800}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -215,9 +217,11 @@ export default function Home() {
             ].map((product) => (
               <div key={product.name} className="group">
                 <div className="relative aspect-square rounded-xl overflow-hidden bg-neutral-100">
-                  <Image
+                  <img
                     src={product.image}
                     alt={product.name}
+                    width={800}
+                    height={800}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                   <button

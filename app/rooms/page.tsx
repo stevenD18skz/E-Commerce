@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div>
+    <div className="min-h-screen text-center flex items-center">
       <p>ola</p>
     </div>
   );
