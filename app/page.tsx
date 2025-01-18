@@ -1,19 +1,9 @@
 "use-client";
 
-import {
-  Menu,
-  Search,
-  ShoppingBag,
-  User,
-  Sofa,
-  ArrowRight,
-  Star,
-  Timer,
-} from "lucide-react";
+import { ShoppingBag, ArrowRight, Star, Timer } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
-
-
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Main Content */}
@@ -129,7 +119,7 @@ export default function Home() {
               >
                 <div className="flex flex-col md:flex-row h-full">
                   <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto">
-                    <img
+                    <Image
                       src={offer.image}
                       alt={offer.name}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
@@ -225,7 +215,7 @@ export default function Home() {
             ].map((product) => (
               <div key={product.name} className="group">
                 <div className="relative aspect-square rounded-xl overflow-hidden bg-neutral-100">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"

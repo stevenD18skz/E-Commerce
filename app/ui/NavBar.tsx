@@ -11,6 +11,7 @@ import {
 
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import Link from "next/link";
 
 export default function NavBar() {
   const isMenuOpen = true;
@@ -39,7 +40,7 @@ export default function NavBar() {
             <Menu className="h-6 w-6 text-neutral-700" />
           </button>
 
-          <a
+          <Link
             href="/"
             className="flex items-center space-x-3 group cursor-pointer"
           >
@@ -54,7 +55,7 @@ export default function NavBar() {
                 diseño & confort
               </span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Search Bar */}
