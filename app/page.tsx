@@ -3,13 +3,14 @@
 import { ShoppingBag, ArrowRight, Star, Timer } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Hero Section */}
-        <section className="relative h-[80vh] mt-8 rounded-2xl overflow-hidden">
+        <section className="relative h-[80vh]  rounded-2xl overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/70 to-neutral-900/30" />
           <div className="relative h-full flex flex-col justify-center px-8 sm:px-12">
@@ -40,23 +41,27 @@ export default function Home() {
               image:
                 "https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=800",
               description: "Espacios para compartir",
+              link: "/rooms/living-room",
             },
             {
               title: "Comedor",
               image:
                 "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800",
               description: "Momentos memorables",
+              link: "/rooms/dining-room",
             },
             {
               title: "Habitación",
               image:
                 "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800",
               description: "Tu espacio personal",
+              link: "/rooms/bedroom",
             },
           ].map((category) => (
-            <div
+            <a
               key={category.title}
               className="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
+              href={category.link}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
@@ -69,7 +74,7 @@ export default function Home() {
                 </h3>
                 <p className="mt-2 text-neutral-200">{category.description}</p>
               </div>
-            </div>
+            </a>
           ))}
         </section>
 

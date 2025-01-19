@@ -17,16 +17,16 @@ export default function NavBar() {
   const isMenuOpen = true;
   const path = usePathname();
   const categories = [
-    { name: "Cocina", icon: <CookingPot />, ref: "/kitchen" },
-    { name: "Sala", icon: <Sofa />, ref: "/room" },
-    { name: "Habitación", icon: <BedDouble />, ref: "/Bedroom" },
-    { name: "Ofertas", icon: <Tag />, ref: "/sales" },
-    { name: "Decoración", icon: <PaintRoller />, ref: "/Decoration" },
-    { name: "Exteriores", icon: <Umbrella />, ref: "/Outdoors" },
+    { name: "Cocina", icon: <CookingPot />, ref: "/rooms/kitchen" },
+    { name: "Sala", icon: <Sofa />, ref: "/rooms/living-room" },
+    { name: "Habitación", icon: <BedDouble />, ref: "/rooms/bedroom" },
+    { name: "Ofertas", icon: <Tag />, ref: "/rooms/sales" },
+    { name: "Decoración", icon: <PaintRoller />, ref: "/rooms/decoration" },
+    { name: "Exteriores", icon: <Umbrella />, ref: "/rooms/outdoors" },
   ];
 
   return (
-    <nav className="w-full px-6 py-4 bg-white border-b border-neutral-100  top-0 z-50">
+    <nav className="w-full px-6 py-4 bg-white border-b border-neutral-100 top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Menu Button and Logo */}
         <div className="flex items-center space-x-6">
@@ -83,8 +83,9 @@ export default function NavBar() {
 
       {/* Categories Menu */}
       <div
-        className={` left-0 right-0 bg-white transform transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? "max-h-82 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={` left-0 right-0 bg-white transform transition-all duration-300 ease-in-out overflow-hidden ${
+          isMenuOpen ? "max-h-82 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="max-w-7xl mx-auto pb-2 pt-4 px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

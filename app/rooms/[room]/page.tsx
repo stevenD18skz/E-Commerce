@@ -1,0 +1,143 @@
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
+import { rooms } from "../../lib/data";
+
+export function generateStaticParams() {
+  return Object.keys(rooms).map((room) => ({
+    room,
+  }));
+}
+
+export default function Page({ params }: { params: { room: string } }) {
+  const room = rooms[params.room as keyof typeof rooms];
+
+  if (!room) {
+    notFound();
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative h-[400px]">
+        <div className="relative w-full h-[400px]">
+          <img
+            src={room.heroImage}
+            alt={room.title}
+            //fill
+            className="absolute inset-0 w-full h-full object-cover"
+            //className="object-cover"
+            //priority
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center">
+          <h1 className="text-6xl font-bold text-white mb-4">{room.title}</h1>
+          <p className="text-2xl text-white/90">{room.description}</p>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 py-12">
+        {/* Categories Grid */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-8">Categories</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {room.categories.map((category) => (
+              <Link
+                key={category.id}
+                href={`/cat/${category.id}`}
+                className="group relative aspect-square rounded-lg overflow-hidden bg-gray-100"
+              >
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  //fill
+                  //className="object-cover transition-transform group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-white font-medium">{category.name}</h3>
+                  <p className="text-white/80 text-sm">
+                    {category.count} items
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Pre-built Designs */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold mb-8">Pre-built Designs</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {room.prebuiltDesigns.map((design) => (
+              <div
+                key={design.id}
+                className="bg-white rounded-lg shadow-sm overflow-hidden"
+              >
+                <div className="relative aspect-[4/3]">
+                  <img
+                    src={design.image}
+                    alt={design.name}
+                    //fill
+                    //className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{design.name}</h3>
+                  <p className="text-muted-foreground mb-4">
+                    {design.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xl font-bold">
+                      ${design.price.toLocaleString()}
+                    </span>
+                    <button className="flex items-center text-primary hover:underline">
+                      View Details
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Design Tips */}
+        <section>
+          <h2 className="text-2xl font-bold mb-8">Design Tips & Ideas</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {room.tips.map((tip) => (
+              <div
+                key={tip.id}
+                className="bg-white rounded-lg shadow-sm overflow-hidden"
+              >
+                <div className="relative aspect-video">
+                  <img
+                    src={tip.image}
+                    alt={tip.title}
+                    //fill
+                    //className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-2">{tip.title}</h3>
+                  <p className="text-muted-foreground">{tip.description}</p>
+                  <button className="flex items-center text-primary hover:underline mt-4">
+                    Read More
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

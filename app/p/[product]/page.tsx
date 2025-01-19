@@ -74,8 +74,8 @@ export default function ProductPage({
   }
 
   return (
-    <div className="w-full bg-sky-200">
-      <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-500 w-full">
+    <div className="w-full bg-sky-50">
+      <div className="max-w-7xl mx-auto px-4 py-8   w-full">
         <ProductDetails product={product} />
 
         {/* Featured Products */}
