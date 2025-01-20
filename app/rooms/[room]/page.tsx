@@ -2,16 +2,16 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { rooms } from "../../lib/data";
+import { rooms, categories } from "../../lib/data";
 
 export function generateStaticParams() {
-  return Object.keys(rooms).map((room) => ({
-    room,
+  // Generar parámetros estáticos basados en los `id` de las habitaciones
+  return rooms.map((room) => ({
+    room: room.id,
   }));
 }
-
 export default function Page({ params }: { params: { room: string } }) {
-  const room = rooms[params.room as keyof typeof rooms];
+  const room = rooms.find((r) => r.id === params.room);
 
   if (!room) {
     notFound();
@@ -44,28 +44,30 @@ export default function Page({ params }: { params: { room: string } }) {
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {room.categories.map((category) => (
-              <Link
-                key={category.id}
-                href={`/cat/${category.id}`}
-                className="group relative aspect-square rounded-lg overflow-hidden bg-gray-100"
-              >
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  //fill
-                  //className="object-cover transition-transform group-hover:scale-105"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-medium">{category.name}</h3>
-                  <p className="text-white/80 text-sm">
-                    {category.count} items
-                  </p>
-                </div>
-              </Link>
-            ))}
+            {categories
+              .filter((c) => c.space === room?.id)
+              .map((category) => (
+                <Link
+                  key={category.id}
+                  href={`/cat/${category.id}`}
+                  className="group relative aspect-square rounded-lg overflow-hidden bg-gray-100"
+                >
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    //fill
+                    //className="object-cover transition-transform group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="text-white font-medium">{category.name}</h3>
+                    <p className="text-white/80 text-sm">
+                      {category.productsAvailable} items
+                    </p>
+                  </div>
+                </Link>
+              ))}
           </div>
         </section>
 

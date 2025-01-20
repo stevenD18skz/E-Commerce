@@ -4,113 +4,13 @@ import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { categories, products, recommendations } from "@/app/lib/data";
 
-const categories = [
-  { id: "all", name: "All Product", active: true },
-  { id: "home", name: "For Home", active: false },
-  { id: "music", name: "For Music", active: false },
-  { id: "phone", name: "For Phone", active: false },
-  { id: "storage", name: "For Storage", active: false },
-];
-
-const products = [
-  {
-    id: "phone-holder",
-    name: "Phone Holder Sakti",
-    price: 29.9,
-    rating: 4.5,
-    reviews: 120,
-    category: "Other",
-    image:
-      "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?w=500&auto=format",
-  },
-  {
-    id: "headphones",
-    name: "Headsound",
-    price: 12.0,
-    rating: 4.7,
-    reviews: 175,
-    category: "Music",
-    image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format",
-  },
-  {
-    id: "cleaner",
-    name: "Adudu Cleaner",
-    price: 29.9,
-    rating: 4.4,
-    reviews: 89,
-    category: "Other",
-    image:
-      "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=500&auto=format",
-  },
-  {
-    id: "ilana-sofa",
-    name: "Ilana",
-    price: 430.99,
-    rating: 4.5,
-    reviews: 230,
-    category: "Home",
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: "stuffus-32",
-    name: "Stuffus Peker 32",
-    price: 9.9,
-    rating: 4.6,
-    reviews: 156,
-    category: "Other",
-    image:
-      "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&auto=format",
-  },
-  {
-    id: "stuffus-r175",
-    name: "Stuffus R175",
-    price: 34.1,
-    rating: 4.8,
-    reviews: 203,
-    category: "Music",
-    image:
-      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format",
-  },
-];
-
-const recommendations = [
-  {
-    id: "tws",
-    name: "TWS Bujug",
-    price: 29.9,
-    rating: 4.3,
-    reviews: 89,
-    category: "Other",
-    image:
-      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format",
-  },
-  {
-    id: "headphones-baptis",
-    name: "Headsound Baptis",
-    price: 12.0,
-    rating: 4.5,
-    reviews: 120,
-    category: "Music",
-    image:
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format",
-  },
-  {
-    id: "piano",
-    name: "Grand Piano",
-    price: 29.9,
-    rating: 4.9,
-    reviews: 45,
-    category: "Music",
-    image:
-      "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=500&auto=format",
-  },
-];
-
-export default function Page() {
+export default function Page({ params }: { params: { categorie: string } }) {
+  const categorie = params.categorie;
   const [currentPage, setCurrentPage] = useState(1);
+  const pathName = usePathname();
   const totalPages = 10;
 
   return (
@@ -148,7 +48,8 @@ export default function Page() {
                 <button
                   key={category.id}
                   className={`flex items-center w-full px-4 py-2 rounded-lg text-sm ${
-                    category.active
+                    //el filtro activado
+                    category
                       ? "bg-primary text-primary-foreground"
                       : "hover:bg-accent"
                   }`}
@@ -162,52 +63,54 @@ export default function Page() {
           {/* Products Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <a
-                  key={product.id}
-                  className="bg-white rounded-lg shadow-sm"
-                  href={`/p/${product.id}`}
-                >
-                  <div className="relative aspect-square">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      //fill
-                      //className="object-cover rounded-t-lg"
-                      className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
-                    />
-                    <span className="absolute top-3 right-3 px-2 py-1 text-xs bg-white rounded">
-                      {product.category}
-                    </span>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium">{product.name}</h3>
-                    <div className="flex items-center mt-1">
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <span key={i}>★</span>
-                        ))}
-                      </div>
-                      <span className="text-sm text-muted-foreground ml-2">
-                        {product.reviews} Reviews
+              {products
+                .filter((p) => p.category === categorie)
+                .map((product) => (
+                  <a
+                    key={product.id}
+                    className="bg-white rounded-lg shadow-sm"
+                    href={`/p/${product.id}`}
+                  >
+                    <div className="relative aspect-square">
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        //fill
+                        //className="object-cover rounded-t-lg"
+                        className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
+                      />
+                      <span className="absolute top-3 right-3 px-2 py-1 text-xs bg-white rounded">
+                        {product.category}
                       </span>
                     </div>
-                    <div className="flex items-center justify-between mt-4">
-                      <span className="font-bold">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      <div className="space-x-2">
-                        <button className="px-4 py-2 text-sm border rounded-md hover:bg-accent">
-                          Add to Cart
-                        </button>
-                        <button className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
-                          Buy Now
-                        </button>
+                    <div className="p-4">
+                      <h3 className="font-medium">{product.name}</h3>
+                      <div className="flex items-center mt-1">
+                        <div className="flex text-yellow-400">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i}>★</span>
+                          ))}
+                        </div>
+                        <span className="text-sm text-muted-foreground ml-2">
+                          {product.reviews} Reviews
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between mt-4">
+                        <span className="font-bold">
+                          ${product.price.toFixed(2)}
+                        </span>
+                        <div className="space-x-2">
+                          <button className="px-4 py-2 text-sm border rounded-md hover:bg-accent">
+                            Add to Cart
+                          </button>
+                          <button className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
+                            Buy Now
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))}
             </div>
 
             {/* Pagination */}
@@ -252,7 +155,7 @@ export default function Page() {
               <div key={product.id} className="bg-white rounded-lg shadow-sm">
                 <div className="relative aspect-square">
                   <img
-                    src={product.image}
+                    src={product.images[0]}
                     alt={product.name}
                     //fill
                     className="object-cover rounded-t-lg"

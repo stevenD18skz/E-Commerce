@@ -1,10 +1,10 @@
-// pages/404.js
+"use client";
 
 import Link from "next/link";
 
 import { Home, ArrowLeft } from "lucide-react";
 
-const NotFoundPage = () => {
+export default function Custom404() {
   return (
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full text-center">
@@ -52,6 +52,4 @@ const NotFoundPage = () => {
       </div>
     </div>
   );
-};
-
-export default NotFoundPage;
+}
