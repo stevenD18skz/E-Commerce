@@ -52,7 +52,7 @@ const rooms = [
         description:
           "Maximize your space with pull-out organizers, vertical storage, and corner solutions.",
         image:
-          "https://fthmb.tqn.com/qYAYrneY2m0TfEQ5pb5a4RcE2Aw%3D/960x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29/storage-galore-pod-185-via-smallspaces.about.com-56a888ac3df78cf7729e9acf.jpg",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
       },
       {
         id: "workflow-tip",
@@ -87,28 +87,28 @@ const rooms = [
         id: "coffee-tables",
         name: "Coffee Tables",
         image:
-          "https://images.unsplash.com/photo-1519961647502-7ff7c305d56e?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 15,
       },
       {
         id: "tv-stands",
         name: "TV Stands",
         image:
-          "https://images.unsplash.com/photo-1576557100938-4d7c6559fb70?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 10,
       },
       {
         id: "bookshelves",
         name: "Bookshelves",
         image:
-          "https://images.unsplash.com/photo-1581459312468-7034c9fa4a7b?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 12,
       },
       {
         id: "rugs",
         name: "Rugs",
         image:
-          "https://images.unsplash.com/photo-1601939386356-c8da3c6b1fef?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 18,
       },
       {
@@ -125,7 +125,7 @@ const rooms = [
         name: "Cozy Rustic",
         description: "Warm tones and natural materials for a homey feel",
         image:
-          "https://images.unsplash.com/photo-1495435229349-e86db7bfa013?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         price: 13000,
       },
       {
@@ -133,7 +133,7 @@ const rooms = [
         name: "Modern Elegant",
         description: "Sleek furniture and elegant accents for a refined look",
         image:
-          "https://images.unsplash.com/photo-1495435229349-e86db7bfa013?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         price: 16000,
       },
       {
@@ -142,7 +142,7 @@ const rooms = [
         description:
           "Vibrant colors and eclectic decor for a free-spirited vibe",
         image:
-          "https://images.unsplash.com/photo-1495435229349-e86db7bfa013?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         price: 14000,
       },
     ],
@@ -169,94 +169,7 @@ const rooms = [
         description:
           "Arrange furniture to create cozy conversation areas and ensure good traffic flow.",
         image:
-          "https://images.unsplash.com/photo-1495435229349-e86db7bfa013?w=800&auto=format&fit=crop",
-      },
-    ],
-  },
-  {
-    id: "dining-room",
-    title: "Dining Room",
-    description: "Craft a space for delightful meals and meaningful gatherings",
-    cardDescription: "lugar familiar",
-    cardImage:
-      "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800",
-    heroImage:
-      "https://images.unsplash.com/photo-1616594713370-30ae8e5c7a3a?w=2000&auto=format&fit=crop",
-
-    categories: [
-      {
-        id: "dining-tables",
-        name: "Dining Tables",
-        image:
-          "https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=800",
-        count: 12,
-      },
-      {
-        id: "chairs",
-        name: "Chairs",
-        image:
-          "https://images.unsplash.com/photo-1585955658349-0e9eb03b7e8c?w=500&auto=format&fit=crop",
-        count: 30,
-      },
-      {
-        id: "buffets",
-        name: "Buffets & Sideboards",
-        image:
-          "https://images.unsplash.com/photo-1558211583-d26a91f3cc9e?w=500&auto=format&fit=crop",
-        count: 10,
-      },
-    ],
-    prebuiltDesigns: [
-      {
-        id: "modern-dining",
-        name: "Modern Dining",
-        description:
-          "Streamlined furniture with chic finishes for a sleek look",
-        image:
-          "https://images.unsplash.com/photo-1595005393241-d7f832d14a68?w=800&auto=format&fit=crop",
-        price: 14000,
-      },
-      {
-        id: "rustic-charm",
-        name: "Rustic Charm",
-        description: "Warm wood tones and farmhouse details for inviting meals",
-        image:
-          "https://images.unsplash.com/photo-1558211583-d26a91f3cc9e?w=800&auto=format&fit=crop",
-        price: 12000,
-      },
-      {
-        id: "elegant-dining",
-        name: "Elegant Dining",
-        description: "Sophisticated furniture with luxurious accents",
-        image:
-          "https://images.unsplash.com/photo-1602872023380-1be192700272?w=800&auto=format&fit=crop",
-        price: 18000,
-      },
-    ],
-    tips: [
-      {
-        id: "centerpiece-tip",
-        title: "Eye-Catching Centerpiece",
-        description:
-          "Add fresh flowers or a decorative bowl for a stylish focal point.",
-        image:
-          "https://images.unsplash.com/photo-1585955658349-0e9eb03b7e8c?w=800&auto=format&fit=crop",
-      },
-      {
-        id: "space-tip",
-        title: "Space Planning",
-        description:
-          "Ensure ample space for chairs and easy movement around the table.",
-        image:
-          "https://images.unsplash.com/photo-1616594713370-30ae8e5c7a3a?w=800&auto=format&fit=crop",
-      },
-      {
-        id: "lighting-tip",
-        title: "Chandelier Magic",
-        description:
-          "Install a statement chandelier for a touch of elegance and proper lighting.",
-        image:
-          "https://images.unsplash.com/photo-1602872023380-1be192700272?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
       },
     ],
   },
@@ -268,27 +181,27 @@ const rooms = [
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=800",
     cardDescription: "Tu espacio personal",
     heroImage:
-      "https://images.unsplash.com/photo-1602516316313-f89fd82b6c31?w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     categories: [
       {
         id: "beds",
         name: "Beds & Frames",
         image:
-          "https://images.unsplash.com/photo-1574680096145-d081c15678b5?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 20,
       },
       {
         id: "wardrobes",
         name: "Wardrobes",
         image:
-          "https://images.unsplash.com/photo-1617191512608-b9ae2f7f8dd2?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 15,
       },
       {
         id: "nightstands",
         name: "Nightstands",
         image:
-          "https://images.unsplash.com/photo-1550935112-4c645f38d4c2?w=500&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         count: 18,
       },
     ],
@@ -298,7 +211,7 @@ const rooms = [
         name: "Modern Comfort",
         description: "Simple lines and plush bedding for a cozy modern vibe",
         image:
-          "https://images.unsplash.com/photo-1616627982436-5cd2cb90e1da?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         price: 12000,
       },
       {
@@ -315,7 +228,7 @@ const rooms = [
         name: "Boho Chic",
         description: "Earthy tones and layered textiles for a relaxed ambiance",
         image:
-          "https://images.unsplash.com/photo-1601923472373-1a824a7a24e6?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
         price: 11000,
       },
     ],
@@ -334,7 +247,7 @@ const rooms = [
         description:
           "Use under-bed drawers and multi-functional furniture to maximize storage.",
         image:
-          "https://images.unsplash.com/photo-1617191512608-b9ae2f7f8dd2?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
       },
       {
         id: "lighting-tip",
@@ -342,7 +255,240 @@ const rooms = [
         description:
           "Incorporate task lighting, bedside lamps, and dimmers for adaptable illumination.",
         image:
-          "https://images.unsplash.com/photo-1585308306896-8b8c3cd3eece?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    id: "dining-room",
+    title: "Dining Room",
+    description: "Craft a space for delightful meals and meaningful gatherings",
+    cardDescription: "lugar familiar",
+    cardImage:
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=800",
+    heroImage:
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+
+    categories: [
+      {
+        id: "dining-tables",
+        name: "Dining Tables",
+        image:
+          "https://images.unsplash.com/photo-1617104551722-3b2d51366400?q=80&w=800",
+        count: 12,
+      },
+      {
+        id: "chairs",
+        name: "Chairs",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        count: 30,
+      },
+      {
+        id: "buffets",
+        name: "Buffets & Sideboards",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        count: 10,
+      },
+    ],
+    prebuiltDesigns: [
+      {
+        id: "modern-dining",
+        name: "Modern Dining",
+        description:
+          "Streamlined furniture with chic finishes for a sleek look",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        price: 14000,
+      },
+      {
+        id: "rustic-charm",
+        name: "Rustic Charm",
+        description: "Warm wood tones and farmhouse details for inviting meals",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        price: 12000,
+      },
+      {
+        id: "elegant-dining",
+        name: "Elegant Dining",
+        description: "Sophisticated furniture with luxurious accents",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        price: 18000,
+      },
+    ],
+    tips: [
+      {
+        id: "centerpiece-tip",
+        title: "Eye-Catching Centerpiece",
+        description:
+          "Add fresh flowers or a decorative bowl for a stylish focal point.",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
+        id: "space-tip",
+        title: "Space Planning",
+        description:
+          "Ensure ample space for chairs and easy movement around the table.",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
+        id: "lighting-tip",
+        title: "Chandelier Magic",
+        description:
+          "Install a statement chandelier for a touch of elegance and proper lighting.",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    id: "exterior",
+    title: "Exterior",
+    description:
+      "Diseña espacios exteriores perfectos para disfrutar de la naturaleza",
+    cardDescription: "Tu conexión con la naturaleza",
+    cardImage:
+      "https://i.pinimg.com/736x/d4/c2/d0/d4c2d0bdce47b9ad233bfe77dfa87e61.jpg",
+    heroImage:
+      "https://i.pinimg.com/736x/d4/c2/d0/d4c2d0bdce47b9ad233bfe77dfa87e61.jpg",
+    categories: [
+      {
+        id: "muebles-exteriores",
+        name: "Muebles Exteriores",
+        image:
+          "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=800&auto=format&fit=crop",
+        count: 25,
+      },
+      {
+        id: "jardines",
+        name: "Jardines",
+        image: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481crop",
+        count: 18,
+      },
+      {
+        id: "decks",
+        name: "Decks & Terrazas",
+        image:
+          "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&auto=format&fit=crop",
+        count: 12,
+      },
+    ],
+    prebuiltDesigns: [
+      {
+        id: "oasis-tropical",
+        name: "Oasis Tropical",
+        description: "Palmeras y muebles de ratán para un ambiente vacacional",
+        image:
+          "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&auto=format&fit=crop",
+        price: 22000,
+      },
+      {
+        id: "terraza-moderna",
+        name: "Terraza Moderna",
+        description: "Líneas limpias y materiales contemporáneos",
+        image:
+          "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800&auto=format&fit=crop",
+        price: 25000,
+      },
+      {
+        id: "jardin-rustico",
+        name: "Jardín Rústico",
+        description: "Elementos naturales y acabados envejecidos",
+        image:
+          "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
+        price: 18000,
+      },
+    ],
+    tips: [
+      {
+        id: "materiales-exteriores",
+        title: "Materiales Resistentes",
+        description:
+          "Elige muebles de aluminio, teca o resina para mayor durabilidad",
+        image: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481crop",
+      },
+      {
+        id: "iluminacion-exterior",
+        title: "Iluminación Ambiental",
+        description:
+          "Usa luces solares y lámparas de suelo para crear atmósfera",
+        image:
+          "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    id: "home-office",
+    title: "Home Office",
+    description: "Crea un espacio de trabajo productivo y inspirador",
+    cardDescription: "Productividad y enfoque",
+    cardImage:
+      "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=2000&auto=format&fit=crop",
+    heroImage:
+      "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=2000&auto=format&fit=crop",
+    categories: [
+      {
+        id: "escritorios",
+        name: "Escritorios",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+        count: 15,
+      },
+      {
+        id: "sillas-oficina",
+        name: "Sillas Ergonómicas",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+        count: 20,
+      },
+    ],
+    prebuiltDesigns: [
+      {
+        id: "oficina-minimalista",
+        name: "Minimalista Moderno",
+        description: "Diseño limpio y funcional para máxima concentración",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+        price: 14000,
+      },
+      {
+        id: "estilo-scandinavo",
+        name: "Estilo Nórdico",
+        description: "Maderas claras y elementos naturales",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+        price: 16000,
+      },
+      {
+        id: "industrial-creativo",
+        name: "Industrial Creativo",
+        description: "Mesas de metal y estantes abiertos",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+        price: 17500,
+      },
+    ],
+    tips: [
+      {
+        id: "ergonomia-tip",
+        title: "Ergonomía Básica",
+        description:
+          "Ajusta la altura de silla y escritorio para una postura saludable",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
+      },
+      {
+        id: "iluminacion-oficina",
+        title: "Iluminación Funcional",
+        description:
+          "Combina luz natural con lámparas de trabajo direccionales",
+        image:
+          "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=800&auto=format&fit=crop",
       },
     ],
   },
@@ -353,7 +499,7 @@ const categories = [
     id: "refrigerators",
     name: "Refrigerators",
     image:
-      "https://media.admagazine.com/photos/642db593ae3961853cd3fc56/master/w_1600%2Cc_limit/KitchenAid-3.jpg",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 24,
     space: "kitchen", // kitchen
   },
@@ -389,21 +535,14 @@ const categories = [
     productsAvailable: 15,
     space: "kitchen", // kitchen
   },
-  {
-    id: "lighting",
-    name: "Lighting",
-    image:
-      "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=500&auto=format&fit=crop",
-    productsAvailable: 28,
-    space: "kitchen", // kitchen
-  },
+
   {
     id: "chairs",
     name: "Sillas",
     description:
       "Sillas ergonómicas, modernas y clásicas para cualquier espacio.",
     image:
-      "https://images.unsplash.com/photo-1562887085-a9fba531cc74?q=80&w=800",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 45,
     space: "dining-room", // Comedor
   },
@@ -413,7 +552,7 @@ const categories = [
     description:
       "Mesas de comedor, centro y escritorio para todos los estilos.",
     image:
-      "https://images.unsplash.com/photo-1596612106884-fbc2d87fe26b?q=80&w=800",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 50,
     space: "dining-room", // Comedor
   },
@@ -422,7 +561,7 @@ const categories = [
     name: "Sofás",
     description: "Sofás cómodos y elegantes para tu sala de estar.",
     image:
-      "https://images.unsplash.com/photo-1615874952026-dde40105a395?q=80&w=800",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 30,
     space: "living-room", // Sala de estar
   },
@@ -432,7 +571,7 @@ const categories = [
     name: "Camas",
     description: "Camas modernas y cómodas para un descanso perfecto.",
     image:
-      "https://images.unsplash.com/photo-1616627454624-6366e416b6ff?q=80&w=800",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 20,
     space: "bedroom", // Dormitorio
   },
@@ -441,7 +580,7 @@ const categories = [
     name: "Closets",
     description: "Closets funcionales y de diseño para optimizar tu espacio.",
     image:
-      "https://images.unsplash.com/photo-1620030485830-9d9a3d5ba7e5?q=80&w=800",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     productsAvailable: 18,
     space: "bedroom", // Dormitorio
   },
@@ -460,7 +599,7 @@ const products = [
   {
     id: "ilana-sofa",
     name: "Ilana",
-    category: "sofa",
+    category: "sofas",
     price: 430.99,
     reviews: 441,
     rating: 4.5,
@@ -479,6 +618,137 @@ const products = [
     },
   },
   {
+    id: "sofia-sofa",
+    name: "Sofia",
+    category: "sofas",
+    price: 389.99,
+    reviews: 328,
+    rating: 4.3,
+    description:
+      "Modern sofa with clean lines and tufted upholstery, perfect for contemporary living spaces.",
+    colors: ["#D4A373", "#6B7280", "#3A5A40", "#B5838D", "#2B2D42"],
+    images: [
+      "https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2069&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1499933374294-4584851497cc?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1552845684-6a4e22b1e2b4?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2069&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "3-5 weeks",
+      cost: 0,
+    },
+  },
+
+  {
+    id: "luna-sofa",
+    name: "Luna",
+    category: "sofas",
+    price: 549.95,
+    reviews: 512,
+    rating: 4.7,
+    description:
+      "Mid-century inspired sofa with walnut legs and premium fabric upholstery.",
+    colors: ["#F5E6CA", "#6D6875", "#588157", "#BC6C25", "#3A405A"],
+    images: [
+      "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1616627439459-0b2e3f5cd558?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550353127-b0da3aeaa0ca?q=80&w=2071&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "6-8 weeks",
+      cost: 35,
+    },
+  },
+
+  {
+    id: "metro-sofa",
+    name: "Metro",
+    category: "sofas",
+    price: 299.99,
+    reviews: 275,
+    rating: 4.1,
+    description:
+      "Compact apartment-sized sofa with space-saving design and removable covers.",
+    colors: ["#F4F1DE", "#3D405B", "#81B29A", "#E07A5F", "#2F4858"],
+    images: [
+      "https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=2080&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550355191-aa8a80b41353?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=2080&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550355191-aa8a80b41353?q=80&w=2070&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "2-4 weeks",
+      cost: 25,
+    },
+  },
+
+  {
+    id: "velvet-sofa",
+    name: "Velvet",
+    category: "sofas",
+    price: 679.0,
+    reviews: 894,
+    rating: 4.8,
+    description:
+      "Luxurious velvet sofa with deep seating and brass-tipped legs for elegant interiors.",
+    colors: ["#9A031E", "#0F4C5C", "#5F0F40", "#E36414", "#2F3E46"],
+    images: [
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1604061986761-d9a4d1266e8d?q=80&w=2070&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "8-10 weeks",
+      cost: 75,
+    },
+  },
+
+  {
+    id: "nordic-sofa",
+    name: "Nordic",
+    category: "sofas",
+    price: 425.5,
+    reviews: 196,
+    rating: 4.6,
+    description:
+      "Scandinavian minimalist design with natural wood accents and washable linen covers.",
+    colors: ["#F8F9FA", "#ADB5BD", "#495057", "#DDA15E", "#606C38"],
+    images: [
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2069&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "4-6 weeks",
+      cost: 45,
+    },
+  },
+
+  {
+    id: "chesterfield-sofa",
+    name: "Chesterfield",
+    category: "sofas",
+    price: 899.99,
+    reviews: 1203,
+    rating: 4.9,
+    description:
+      "Classic leather chesterfield sofa with button-tufted detailing and rolled arms.",
+    colors: ["#582F0E", "#3A5A40", "#1B263B", "#4A5759", "#BA181B"],
+    images: [
+      "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2069&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?q=80&w=1992&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1635972956800-315a9f8fbe07?q=80&w=1935&auto=format&fit=crop",
+    ],
+    delivery: {
+      time: "10-12 weeks",
+      cost: 99,
+    },
+  },
+  {
     id: "modern-fridge",
     name: "Modern Refrigerator",
     category: "refrigerators",
@@ -491,7 +761,7 @@ const products = [
     images: [
       "https://images.unsplash.com/photo-1630459065645-549fe5a56db4?q=80&w=987&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1561043433-aaf687c4cf04?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576511452025-dcfdd7e4e032?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "3 - 5 weeks",
@@ -510,7 +780,7 @@ const products = [
     colors: ["#6B7280", "#374151", "#F3F4F6"],
     images: [
       "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1570463869233-a0e1b2a8fbbe?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "4 - 6 weeks",
@@ -528,8 +798,7 @@ const products = [
       "A luxurious kitchen island that brings elegance and functionality to your space.",
     colors: ["#F6E7D8", "#D9CAB3", "#8A7967"],
     images: [
-      "https://images.unsplash.com/photo-1600585154350-27f49c6f9ba2?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1576618148401-0b2e0f5e7fc8?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "6 - 8 weeks",
@@ -547,8 +816,7 @@ const products = [
       "Elegant and durable oak cabinets, perfect for modern and traditional kitchens alike.",
     colors: ["#A77F53", "#D4B89A", "#8B5A2B"],
     images: [
-      "https://images.unsplash.com/photo-1598550436625-cbc4d7b2ff96?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600591130028-8b4383ce3ffb?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "6 - 8 weeks",
@@ -566,8 +834,7 @@ const products = [
       "A sleek stainless steel sink that combines style and functionality for any kitchen.",
     colors: ["#B8B8B8", "#E0E0E0"],
     images: [
-      "https://images.unsplash.com/photo-1560185007-b033107d5735?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1606312610251-c8e9b620eb4f?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "2 - 3 weeks",
@@ -585,8 +852,7 @@ const products = [
       "Modern ceiling lighting to brighten up your home with adjustable intensity options.",
     colors: ["#FFFFE0", "#EAEAEA"],
     images: [
-      "https://images.unsplash.com/photo-1578898888486-d8690e56173e?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1543486958-d783bfbfcd77?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "3 - 5 weeks",
@@ -596,7 +862,7 @@ const products = [
   {
     id: "minimalist-sofa",
     name: "Minimalist Sofa",
-    category: "sofa",
+    category: "sofas",
     price: 499.99,
     reviews: 95,
     rating: 4.6,
@@ -624,7 +890,7 @@ const products = [
     colors: ["#E6E6E6", "#BFC1C2"],
     images: [
       "https://images.unsplash.com/photo-1643356472833-5b1f2cd4ca3c?q=80&w=987&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1616627797744-f67e4c55bc3b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "4 - 6 weeks",
@@ -642,8 +908,7 @@ const products = [
       "A reliable and efficient gas stove, perfect for precise cooking and fast heat adjustments.",
     colors: ["#2C2F33", "#D1D5DB"],
     images: [
-      "https://images.unsplash.com/photo-1583511655782-99b86b30b241?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1597532056271-b5c2b6be76cc?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "4 - 6 weeks",
@@ -661,8 +926,7 @@ const products = [
       "A modern and stylish kitchen island that brings both beauty and functionality to your cooking space.",
     colors: ["#E1D5C4", "#A9A9A9", "#8B7D6D"],
     images: [
-      "https://images.unsplash.com/photo-1598300051348-0c8e350d8cd3?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600408588502-fbcae52b9c62?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "5 - 7 weeks",
@@ -680,8 +944,7 @@ const products = [
       "Luxurious walnut cabinets that offer timeless elegance and plenty of storage space for your kitchen.",
     colors: ["#6A4E23", "#3E2C1C", "#9A7B3F"],
     images: [
-      "https://images.unsplash.com/photo-1596079890736-4aa18f4d34f0?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1603529476402-e5d09d8a5b2b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "6 - 8 weeks",
@@ -699,8 +962,7 @@ const products = [
       "A spacious dual basin sink, designed for efficient washing and separation of tasks.",
     colors: ["#A5A5A5", "#E4E4E4"],
     images: [
-      "https://images.unsplash.com/photo-1556912996-1d40e0e18c30?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584611378405-00d46e2d7452?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "3 - 5 weeks",
@@ -718,8 +980,7 @@ const products = [
       "A stunning chandelier that adds a touch of elegance and luxury to any room.",
     colors: ["#F1F1F1", "#D4AF37", "#8C7A4D"],
     images: [
-      "https://images.unsplash.com/photo-1571045459467-e751bf3e47c1?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1593055385599-08601757c3c1?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "3 - 4 weeks",
@@ -729,7 +990,7 @@ const products = [
   {
     id: "retro-sofa",
     name: "Retro Sofa",
-    category: "sofa",
+    category: "sofas",
     price: 470.0,
     reviews: 85,
     rating: 4.3,
@@ -738,7 +999,7 @@ const products = [
     colors: ["#F2B6A0", "#C1C1C1", "#9B6D43"],
     images: [
       "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544046507-bfc5b1152cf0?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "4 - 6 weeks",
@@ -774,8 +1035,7 @@ const products = [
       "An electric stove with multiple settings to provide you with consistent and reliable cooking performance.",
     colors: ["#B0B0B0", "#D1D1D1"],
     images: [
-      "https://images.unsplash.com/photo-1600407663094-d28db0e6d5d3?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1588017609440-2a45077f264b?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "4 - 6 weeks",
@@ -793,8 +1053,7 @@ const products = [
       "A sleek and functional kitchen island with ample counter space and modern design elements.",
     colors: ["#FFFFFF", "#C5A88D", "#D8D8D8"],
     images: [
-      "https://images.unsplash.com/photo-1614384537393-66b2c18e7e79?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1614560344859-8716f08e3254?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "5 - 7 weeks",
@@ -812,8 +1071,7 @@ const products = [
       "Elegant maple wood cabinets that add warmth and charm to any kitchen space.",
     colors: ["#F1D1A5", "#8E735B", "#A28F76"],
     images: [
-      "https://images.unsplash.com/photo-1616627978690-e08e4d3d4d50?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1616082498358-c46e1b25d375?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "6 - 8 weeks",
@@ -831,8 +1089,7 @@ const products = [
       "A sleek and durable porcelain sink, perfect for modern bathrooms and kitchens.",
     colors: ["#F0F0F0", "#B0B0B0", "#9C9C9C"],
     images: [
-      "https://images.unsplash.com/photo-1572297575692-306d6cbbd1d1?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1562255984-1c59e3e8c3e7?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "3 - 5 weeks",
@@ -850,8 +1107,7 @@ const products = [
       "Energy-efficient LED lighting that provides bright and even illumination for any space.",
     colors: ["#FFFFFF", "#F0F0F0", "#E0E0E0"],
     images: [
-      "https://images.unsplash.com/photo-1600490354601-43996c4bc15a?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1618473645430-8712c3b1b83e?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=2070&auto=format&fit=crop",
     ],
     delivery: {
       time: "2 - 4 weeks",
@@ -860,7 +1116,24 @@ const products = [
   },
 ];
 
-const recommendations = [products[3], products[12], products[2], products[7]];
+const recommendations = [
+  products[1],
+  products[2],
+  products[3],
+  products[4],
+  products[5],
+  products[6],
+  products[7],
+  products[8],
+  products[9],
+  products[10],
+  products[11],
+  products[12],
+  products[13],
+  products[14],
+  products[15],
+  products[16],
+];
 
 const offers = [
   {

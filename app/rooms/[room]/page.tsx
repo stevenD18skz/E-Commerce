@@ -10,8 +10,9 @@ export function generateStaticParams() {
     room: room.id,
   }));
 }
-export default function Page({ params }: { params: { room: string } }) {
-  const room = rooms.find((r) => r.id === params.room);
+export default async function Page({ params }: { params: { room: string } }) {
+  const { room: roomId } = await params; // ¡Clave aquí!
+  const room = rooms.find((r) => r.id === roomId);
 
   if (!room) {
     notFound();
@@ -39,7 +40,7 @@ export default function Page({ params }: { params: { room: string } }) {
         </div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 py-12">
+      <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Categories Grid */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold mb-8">Categories</h2>

@@ -1,14 +1,16 @@
-"use-client";
+"use client";
 
 import Image from "next/image";
-import { ShoppingBag, ArrowRight, Star, Timer } from "lucide-react";
+import { ShoppingBag, ArrowRight, Timer } from "lucide-react";
 import { rooms, offers, recommendations } from "./lib/data";
+import Newsletter from "./ui/Newsletter";
+import CarrouselProducts from "./ui/CarrouselProducts";
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Hero Section */}
-      <section className="relative h-[50vh] rounded-2xl overflow-hidden">
+      <section className="relative mx-4 h-[50vh] rounded-2xl overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/70 to-neutral-900/30" />
         <div className="relative h-full flex flex-col justify-center px-8 sm:px-12">
@@ -32,7 +34,7 @@ export default function Page() {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Categories Grid */}
         <section className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rooms.map((category) => (
@@ -83,7 +85,7 @@ export default function Page() {
               >
                 <div className="flex flex-col md:flex-row h-full">
                   <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto">
-                    <img
+                    <Image
                       src={offer.images[0]}
                       alt={offer.name}
                       width={800}
@@ -131,83 +133,13 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Featured Products */}
-        <section className="mt-16">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <h2 className="text-2xl font-medium text-neutral-900">
-                Productos destacados
-              </h2>
-              <p className="mt-1 text-neutral-600">
-                Diseños exclusivos seleccionados para ti
-              </p>
-            </div>
-            <button className="text-neutral-900 flex items-center space-x-2 group">
-              <span>Ver todos</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+        <CarrouselProducts
+          recommendations={recommendations}
+          title={"Productos destacados"}
+          description={"Diseños exclusivos seleccionados para ti"}
+        />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {recommendations.map((product) => (
-              <div key={product.name} className="group">
-                <div className="relative aspect-square rounded-xl overflow-hidden bg-neutral-100">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    width={800}
-                    height={800}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <a
-                    className="absolute bottom-4 right-4 p-3 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-neutral-50 active:scale-95"
-                    href={`/p/${product.id}`}
-                  >
-                    <ShoppingBag className="h-5 w-5 text-neutral-900" />
-                  </a>
-                </div>
-
-                <div className="mt-4">
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm text-neutral-600">
-                      {product.rating}
-                    </span>
-                  </div>
-                  <h3 className="mt-1 font-medium text-neutral-900">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 text-neutral-600">${product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Newsletter Section */}
-        <section className="mt-24 mb-16 bg-neutral-100 rounded-2xl p-12 text-center">
-          <h2 className="text-2xl font-medium text-neutral-900">
-            Únete a nuestra comunidad
-          </h2>
-          <p className="mt-2 text-neutral-600 max-w-xl mx-auto">
-            Suscríbete para recibir las últimas tendencias en diseño de
-            interiores y ofertas exclusivas.
-          </p>
-          <form className="mt-6 flex gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Tu correo electrónico"
-              className="flex-1 px-4 py-3 rounded-lg border border-neutral-200
-                       focus:outline-none focus:ring-2 focus:ring-neutral-200"
-            />
-            <button
-              className="px-6 py-3 bg-neutral-900 text-white rounded-lg
-                           hover:bg-neutral-800 transition-colors"
-            >
-              Suscribirse
-            </button>
-          </form>
-        </section>
+        <Newsletter />
       </main>
     </div>
   );

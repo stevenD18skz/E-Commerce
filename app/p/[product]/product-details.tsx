@@ -21,7 +21,9 @@ type Product = {
 };
 
 export default function ProductDetails({ product }: { product: Product }) {
+  const sizes = ["s", "m", "x", "xl"];
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -106,9 +108,8 @@ export default function ProductDetails({ product }: { product: Product }) {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 space-y-4">
+        <div className="flex space-x-16">
           <div>
-            {" "}
             <h3 className="font-semibold">Color</h3>
             <div className="flex space-x-2">
               {product.colors.map((color) => (
@@ -128,17 +129,17 @@ export default function ProductDetails({ product }: { product: Product }) {
           <div>
             <h3 className="font-semibold">Size</h3>
             <div className="flex space-x-2">
-              {product.colors.map((color) => (
+              {sizes.map((size) => (
                 <button
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
+                  key={size}
+                  onClick={() => setSelectedSize(size)}
                   className={clsx(
-                    "w-8 h-8 rounded-full",
-                    selectedColor === color &&
-                      "ring-2 ring-primary ring-offset-2"
+                    "w-8 h-8 rounded-full bg-gray-200",
+                    selectedSize === size && "ring-2 ring-primary ring-offset-2"
                   )}
-                  style={{ backgroundColor: color }}
-                />
+                >
+                  <strong className="text-sm text-base">{size}</strong>
+                </button>
               ))}
             </div>
           </div>

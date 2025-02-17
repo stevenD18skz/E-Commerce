@@ -12,9 +12,10 @@ import {
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function NavBar() {
-  const isMenuOpen = true;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
   const categories = [
     { name: "Cocina", icon: <CookingPot />, ref: "/rooms/kitchen" },
@@ -33,6 +34,7 @@ export default function NavBar() {
           <button
             className="p-2 hover:bg-neutral-50 rounded-lg transition-colors duration-200"
             aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu className="h-6 w-6 text-neutral-700" />
           </button>
@@ -83,7 +85,7 @@ export default function NavBar() {
 
       {/* Categories Menu */}
       <div
-        className={` left-0 right-0 bg-white transform transition-all duration-300 ease-in-out overflow-hidden ${
+        className={`fixed z-10 left-0 right-0 bg-white transform transition-all duration-500 ease-in-out overflow-hidden ${
           isMenuOpen ? "max-h-82 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
