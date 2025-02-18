@@ -1,26 +1,25 @@
-"use client";
-
-import { useParams, usePathname } from "next/navigation";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { categories, products, recommendations } from "@/app/lib/data";
+import { categories, recommendations } from "@/app/lib/data";
 import Newsletter from "@/app/ui/Newsletter";
 import CarrouselProducts from "@/app/ui/CarrouselProducts";
+import SearchBar from "@/app/ui/SearchBar";
+import { Suspense } from "react";
 
-export default function Page() {
-  const params = useParams();
-  const categorie = params.categorie as string;
-  const [currentPage, setCurrentPage] = useState(1);
-  const pathName = usePathname();
+import TableCategorie from "@/app/ui/categoria/TableCategorie";
+import TableCategorieSkeleton from "@/app/ui/categoria/TableCategorieSkeleton";
+
+export default async function Page(props: {
+  searchParams?: Promise<{
+    query?: string;
+    page?: string;
+  }>;
+}) {
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 1;
+
   const totalPages = 10;
-
-  const handlePageChange = (newPage: number) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background bg-slate-100">
@@ -51,14 +50,17 @@ export default function Page() {
         <div className="flex gap-8">
           {/* Sidebar actualizado */}
           <div className="w-64 flex-shrink-0">
+            <SearchBar placeholder="Search invoices..." />
+            {query}
             <h2 className="font-semibold mb-4">Category</h2>
+
             <div className="space-y-2">
               {categories.map((category) => (
                 <Link
                   key={category.id}
                   href={`/categories/${category.id}`}
                   className={`flex items-center w-full px-4 py-2 rounded-lg text-sm ${
-                    categorie === category.id
+                    "sofas" === category.id
                       ? "bg-primary text-primary-foreground"
                       : "hover:bg-accent"
                   }`}
@@ -71,74 +73,20 @@ export default function Page() {
 
           {/* Products Grid con Image optimizado */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products
-                .filter((p) => p.category === categorie)
-                .map((product) => (
-                  <Link
-                    key={product.id}
-                    href={`/p/${encodeURIComponent(product.id)}`}
-                    className="bg-white rounded-lg shadow-sm block"
-                  >
-                    <div className="relative aspect-square">
-                      <img
-                        src={product.images[0]}
-                        alt={product.name}
-                        //fill
-                        //className="object-cover rounded-t-lg"
-                        className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
-                      />
-                      <span className="absolute top-3 right-3 px-2 py-1 text-xs bg-white rounded">
-                        {product.category}
-                      </span>
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-medium">{product.name}</h3>
-                      <div className="flex items-center mt-1">
-                        <div className="flex text-yellow-400">
-                          {[...Array(5)].map((_, i) => (
-                            <span key={i}>★</span>
-                          ))}
-                        </div>
-                        <span className="text-sm text-muted-foreground ml-2">
-                          {product.reviews} Reviews
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between mt-4">
-                        <span className="font-bold">
-                          ${product.price.toFixed(2)}
-                        </span>
-                        <div className="space-x-2">
-                          <button className="px-4 py-2 text-sm border rounded-md hover:bg-accent">
-                            Add to Cart
-                          </button>
-                          <button className="px-4 py-2 text-sm bg-primary text-primary-foreground rounded-md hover:bg-primary/90">
-                            Buy Now
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-            </div>
+            <Suspense
+              key={query + currentPage}
+              fallback={<TableCategorieSkeleton />}
+            >
+              <TableCategorie query={query} />
+            </Suspense>
 
             {/* Paginación funcional */}
             <div className="flex items-center justify-center space-x-2 mt-8">
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-              >
+              <button disabled={currentPage === 1}>
                 <ChevronLeft className="w-5 h-5" />
               </button>
               {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  className={`w-8 h-8 rounded-lg ${
-                    currentPage === i + 1
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent"
-                  }`}
-                >
+                <button key={i} className={`w-8 h-8 rounded-lg  `}>
                   {i + 1}
                 </button>
               ))}

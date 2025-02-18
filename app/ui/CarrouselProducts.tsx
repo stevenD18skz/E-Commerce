@@ -12,14 +12,22 @@ import {
 
 import { useRef, useState } from "react";
 
+type Product = {
+  id: string;
+  name: string;
+  images: string[];
+  rating: number;
+  price: number;
+};
+
 export default function CarrouselProducts({
   recommendations,
   title,
   description,
 }: {
   recommendations: Product[];
-  string;
-  string;
+  title: string;
+  description: string;
 }) {
   const [currentIndex, setCurrentIndex] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
