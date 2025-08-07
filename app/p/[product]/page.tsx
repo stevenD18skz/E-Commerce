@@ -4,21 +4,17 @@ import { products } from "@/app/lib/data";
 import ProductDetails from "./product-details";
 import CarrouselProducts from "@/app/ui/CarrouselProducts";
 
-// Genera static params usando el campo `name` como parte dinámica de la URL
-export function generateStaticParams() {
-  return products.map((product) => ({
-    product: product.name,
-  }));
+interface PageProps {
+  params: Promise<{ product: string }>;
 }
 
-// Componente de página (sin async, para que coincida con el PageProps que Next espera)
-export default function ProductPage({
-  params,
-}: {
-  params: { product: string };
-}) {
-  const productName = params.product;
-  const product = products.find((p) => p.name === productName);
+export default async function Page({ params }: PageProps) {
+  // Espera a que se resuelvan los parámetros
+  const resolvedParams = await params;
+  const productName = decodeURIComponent(resolvedParams.product);
+
+  console.log("Product Name:", productName);
+  const product = products.find((p) => p.id === productName);
 
   if (!product) {
     return (

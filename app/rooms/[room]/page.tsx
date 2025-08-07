@@ -4,15 +4,17 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { rooms, categories } from "../../lib/data";
 // Generar parámetros estáticos basados en los `id` de las habitaciones
-export function generateStaticParams() {
-  return rooms.map((room) => ({
-    room: room.id,
-  }));
+interface PageProps {
+  params: Promise<{ room: string }>;
 }
-export default async function Page({ params }: { params: { room: string } }) {
-  const { room: roomId } = await params; // ¡Clave aquí!
 
-  const room = rooms.find((r) => r.id === roomId);
+export default async function Page({ params }: PageProps) {
+  // Espera a que se resuelvan los parámetros
+  const resolvedParams = await params;
+  const roomName = decodeURIComponent(resolvedParams.room);
+
+  console.log("Product Name:", roomName);
+  const room = rooms.find((p) => p.id === roomName);
 
   if (!room) {
     notFound();
