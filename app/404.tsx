@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { Home, ArrowLeft } from "lucide-react";
 
@@ -10,10 +11,12 @@ export default function Custom404() {
       <div className="max-w-2xl w-full text-center">
         {/* Image */}
         <div className="relative w-full aspect-[4/3] mb-8">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=1200"
             alt="Peaceful living room"
             className="w-full h-full object-cover rounded-2xl"
+            width={1200}
+            height={900}
           />
           <div className="absolute inset-0 bg-neutral-900/10 rounded-2xl" />
         </div>
@@ -39,7 +42,7 @@ export default function Custom404() {
             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             <span>Volver atrás</span>
           </button>
-          <a
+          <Link
             href="/"
             className="px-6 py-3 bg-neutral-900 text-white rounded-full
                    inline-flex items-center space-x-2
@@ -47,7 +50,7 @@ export default function Custom404() {
           >
             <Home className="h-4 w-4" />
             <span>Ir al inicio</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

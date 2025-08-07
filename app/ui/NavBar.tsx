@@ -92,7 +92,7 @@ export default function NavBar() {
         <div className="max-w-7xl mx-auto pb-2 pt-4 px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {categories.map((category) => (
-              <a
+              <Link
                 href={category.ref}
                 key={category.name}
                 className={clsx(
@@ -107,7 +107,7 @@ export default function NavBar() {
                   {category.icon}
                 </div>
                 <p>{category.name}</p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

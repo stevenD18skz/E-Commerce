@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import {
   ShoppingBag,
@@ -105,26 +106,26 @@ export default function CarrouselProducts({
                       height={300}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
-                    <a
+                    <Link
                       className="absolute bottom-4 right-16 p-3 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-neutral-50 active:scale-95"
                       href={`/p/${product.id}`}
                     >
                       <ShoppingBag className="h-5 w-5 text-neutral-900" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="absolute bottom-4 right-4 p-3 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-neutral-50 active:scale-95"
                       href={`/p/${product.id}`}
                     >
                       <HeartIcon className="h-5 w-5 text-neutral-900" />
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="mt-4">
-                    <a href={`/p/${encodeURIComponent(product.id)}`}>
+                    <Link href={`/p/${encodeURIComponent(product.id)}`}>
                       <h3 className=" font-medium text-xl text-neutral-400 hover:underline hover:underline-offset-8 hover:text-neutral-900 ">
                         {product.name}
                       </h3>
-                    </a>
+                    </Link>
 
                     <div className="flex items-center mt-1 space-x-1">
                       <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />

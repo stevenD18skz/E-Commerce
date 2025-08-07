@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ShoppingBag, ArrowRight, Timer } from "lucide-react";
 import { rooms, offers, recommendations } from "./lib/data";
@@ -38,7 +39,7 @@ export default function Page() {
         {/* Categories Grid */}
         <section className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rooms.map((category) => (
-            <a
+            <Link
               key={category.title}
               className="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
               href={`/rooms/${category.id}`}
@@ -56,7 +57,7 @@ export default function Page() {
                   {category.cardDescription}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </section>
 
@@ -88,6 +89,7 @@ export default function Page() {
                     <Image
                       src={offer.images[0]}
                       alt={offer.name}
+                      priority
                       width={800}
                       height={800}
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
@@ -118,13 +120,13 @@ export default function Page() {
                         <Timer className="h-5 w-5" />
                         <span>Termina en {offer.timeLeft}</span>
                       </div>
-                      <a
+                      <Link
                         className="px-6 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors flex items-center space-x-2"
                         href={`/p/${offer.id}`}
                       >
                         <ShoppingBag className="h-4 w-4" />
                         <span>Ver</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

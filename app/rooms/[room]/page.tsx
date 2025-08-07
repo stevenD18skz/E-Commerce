@@ -3,15 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { rooms, categories } from "../../lib/data";
-
+// Generar parámetros estáticos basados en los `id` de las habitaciones
 export function generateStaticParams() {
-  // Generar parámetros estáticos basados en los `id` de las habitaciones
   return rooms.map((room) => ({
     room: room.id,
   }));
 }
 export default async function Page({ params }: { params: { room: string } }) {
   const { room: roomId } = await params; // ¡Clave aquí!
+
   const room = rooms.find((r) => r.id === roomId);
 
   if (!room) {
@@ -23,13 +23,13 @@ export default async function Page({ params }: { params: { room: string } }) {
       {/* Hero Section */}
       <section className="relative h-[400px]">
         <div className="relative w-full h-[400px]">
-          <img
+          <Image
             src={room.heroImage}
             alt={room.title}
-            //fill
             className="absolute inset-0 w-full h-full object-cover"
-            //className="object-cover"
-            //priority
+            priority
+            width={1920}
+            height={400}
           />
         </div>
 
@@ -53,11 +53,11 @@ export default async function Page({ params }: { params: { room: string } }) {
                   href={`/cat/${category.id}`}
                   className="group relative aspect-square rounded-lg overflow-hidden bg-gray-100"
                 >
-                  <img
+                  <Image
                     src={category.image}
                     alt={category.name}
-                    //fill
-                    //className="object-cover transition-transform group-hover:scale-105"
+                    width={500}
+                    height={500}
                     className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -82,11 +82,11 @@ export default async function Page({ params }: { params: { room: string } }) {
                 className="bg-white rounded-lg shadow-sm overflow-hidden"
               >
                 <div className="relative aspect-[4/3]">
-                  <img
+                  <Image
                     src={design.image}
                     alt={design.name}
-                    //fill
-                    //className="object-cover"
+                    width={500}
+                    height={375}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
@@ -120,11 +120,11 @@ export default async function Page({ params }: { params: { room: string } }) {
                 className="bg-white rounded-lg shadow-sm overflow-hidden"
               >
                 <div className="relative aspect-video">
-                  <img
+                  <Image
                     src={tip.image}
                     alt={tip.title}
-                    //fill
-                    //className="object-cover"
+                    width={500}
+                    height={300}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>

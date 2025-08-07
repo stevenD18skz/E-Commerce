@@ -32,12 +32,13 @@ export default function ProductDetails({ product }: { product: Product }) {
       {/* Left column - Images */}
       <div className="space-y-4">
         <div className="relative aspect-square rounded-lg overflow-hidden">
-          <img
+          <Image
             src={product.images[selectedImage]}
             alt={product.name}
-            //fill
             className="object-cover"
-            //priority
+            priority
+            width={500}
+            height={500}
           />
         </div>
         <div className="grid grid-cols-4 gap-2">
@@ -50,11 +51,12 @@ export default function ProductDetails({ product }: { product: Product }) {
                 selectedImage === index && "ring-2 ring-primary"
               )}
             >
-              <img
+              <Image
                 src={image}
                 alt={`${product.name} ${index + 1}`}
-                //fill
                 className="object-cover"
+                width={100}
+                height={100}
               />
             </button>
           ))}
@@ -138,7 +140,7 @@ export default function ProductDetails({ product }: { product: Product }) {
                     selectedSize === size && "ring-2 ring-primary ring-offset-2"
                   )}
                 >
-                  <strong className="text-sm text-base">{size}</strong>
+                  <strong className="">{size}</strong>
                 </button>
               ))}
             </div>

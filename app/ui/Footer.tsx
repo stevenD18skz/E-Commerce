@@ -11,6 +11,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
@@ -187,10 +189,12 @@ export default function Footer() {
               © 2024 Muebles Design. Todos los derechos reservados.
             </p>
             <div className="flex items-center space-x-4">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1580508174046-170816f65662?q=80&w=200"
                 alt="Payment Methods"
                 className="h-6 opacity-75"
+                width={200}
+                height={24}
               />
             </div>
           </div>
