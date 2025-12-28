@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, ChevronRight, Star, Minus, Plus, Truck, Package } from "lucide-react";
+import { Heart, Star, Minus, Plus, Truck, Package } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";

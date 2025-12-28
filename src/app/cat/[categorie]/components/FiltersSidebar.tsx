@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Slider } from "@/components/ui/slider"; // Assuming you might have a slider, if not I'll just use inputs or standard HTML range for now. I'll stick to simple first.
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function FiltersSidebar() {

@@ -42,13 +42,13 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    const onDocClick = (e: any) => {
+    const onDocClick = (e: MouseEvent) => {
       if (!currencyRef.current) return;
       // if click is outside the currency menu, close it
       if (
         currencyOpen &&
         currencyRef.current &&
-        !currencyRef.current.contains(e.target)
+        !currencyRef.current.contains(e.target as Node)
       ) {
         setCurrencyOpen(false);
       }

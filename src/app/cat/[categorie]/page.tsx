@@ -1,6 +1,5 @@
 import { ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
-import Link from "next/link";
-import { categories, recommendations } from "@/lib/data";
+import { recommendations } from "@/lib/data";
 import CarrouselProducts from "@/components/ui/CarrouselProducts";
 import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
@@ -18,7 +17,6 @@ export default async function Page(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = 10;
 
   return (
     <div className="min-h-screen bg-white">

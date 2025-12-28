@@ -4,12 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ShoppingBag,
-  ArrowRight,
   Star,
   HeartIcon,
   ChevronLeft,
   ChevronRight,
-  Plus,
 } from "lucide-react";
 
 import { useRef, useState } from "react";

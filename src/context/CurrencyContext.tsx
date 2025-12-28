@@ -5,7 +5,6 @@ import {
     useContext,
     useState,
     ReactNode,
-    useEffect,
 } from "react";
 
 export type Currency = "COP" | "USD" | "EUR" | "GBP";

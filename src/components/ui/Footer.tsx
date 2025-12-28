@@ -11,8 +11,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-import Image from "next/image";
-
 export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
