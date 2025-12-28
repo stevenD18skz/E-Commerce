@@ -19,15 +19,15 @@ export default function Page() {
       <HeroCarousel />
 
       {/* Main Content */}
-      <main className="max-w-[140rem] mx-auto px-16 space-y-12 py-12">
+      <main className="max-w-[140rem] mx-auto px-16 space-y-[var(--spacing-xxl)] py-[var(--spacing-xxl)]">
         {/* Categories Grid */}
         <section className="">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-[var(--spacing-xs)] gap-4">
             <div className="space-y-2">
-              <h2 className="text-3xl font-light tracking-tight text-neutral-900">
+              <h2 className="text-3xl font-light tracking-tight text-[var(--text-primary)]">
                 Explora nuestras categorías
               </h2>
-              <p className="text-neutral-500 font-light text-lg">
+              <p className="text-[var(--text-secondary)] font-light text-lg">
                 Curaduría de muebles para cada rincón de tu hogar
               </p>
             </div>
@@ -77,14 +77,14 @@ export default function Page() {
         <section className="">
           <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
             <div className="space-y-2">
-              <h2 className="text-3xl font-light tracking-tight text-neutral-900">
+              <h2 className="text-3xl font-light tracking-tight text-[var(--text-primary)]">
                 Ofertas destacadas
               </h2>
-              <p className="text-neutral-500 font-light text-lg">
+              <p className="text-[var(--text-secondary)] font-light text-lg">
                 Oportunidades únicas por tiempo limitado
               </p>
             </div>
-            <button className="text-sm font-medium text-neutral-900 flex items-center gap-2 group hover:text-neutral-600 transition-colors pb-1">
+            <button className="text-sm font-medium text-[var(--text-primary)] flex items-center gap-2 group hover:text-neutral-600 transition-colors pb-1">
               <span>Ver todas las ofertas</span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -104,7 +104,7 @@ export default function Page() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-neutral-900 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[var(--text-primary)] text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
                     -{offer.discount}%
                   </div>
                 </div>
@@ -113,11 +113,11 @@ export default function Page() {
                 <div className="p-6 flex flex-col justify-between flex-grow gap-4">
                   <div className="space-y-3">
                     <div className="flex justify-between items-start gap-4">
-                      <h3 className="font-medium text-xl text-neutral-900 leading-tight">
+                      <h3 className="font-medium text-xl text-[var(--text-primary)] leading-tight">
                         {offer.name}
                       </h3>
                       <div className="flex flex-col items-end">
-                        <span className="text-lg font-semibold text-neutral-900">
+                        <span className="text-lg font-semibold text-[var(--text-primary)]">
                           {formatPrice(offer.price * (1 - offer.discount / 100))}
                         </span>
                         <span className="text-sm text-neutral-400 line-through">
@@ -126,7 +126,7 @@ export default function Page() {
                       </div>
                     </div>
 
-                    <p className="text-sm text-neutral-500 line-clamp-2 font-light leading-relaxed">
+                    <p className="text-sm text-[var(--text-secondary)] line-clamp-2 font-light leading-relaxed">
                       {offer.description}
                     </p>
                   </div>
@@ -139,7 +139,7 @@ export default function Page() {
 
                     <Link
                       href={`/p/${offer.id}`}
-                      className="text-sm font-medium text-neutral-900 group-hover:text-black hover:underline hover:underline-offset-4 transition-all flex items-center gap-2"
+                      className="text-sm font-medium text-[var(--text-primary)] group-hover:text-black hover:underline hover:underline-offset-4 transition-all flex items-center gap-2"
                     >
                       Ver detalles
                     </Link>
