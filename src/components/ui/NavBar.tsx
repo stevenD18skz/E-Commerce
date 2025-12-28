@@ -27,7 +27,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="w-full px-6 py-4 bg-white border-b border-neutral-100 top-0 z-50">
+    <nav className="w-full px-6 py-4 relative bg-white border-b border-neutral-100 top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Menu Button and Logo */}
         <div className="flex items-center space-x-6">
@@ -85,9 +85,10 @@ export default function NavBar() {
 
       {/* Categories Menu */}
       <div
-        className={`fixed z-10 left-0 right-0 bg-white transform transition-all duration-500 ease-in-out overflow-hidden ${
-          isMenuOpen ? "max-h-82 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={clsx(
+          "absolute left-0 right-0 bg-white border-b border-neutral-100 shadow-xl transition-all duration-500 overflow-hidden z-40",
+          isMenuOpen ? "max-h-96" : "max-h-0"
+        )}
       >
         <div className="max-w-7xl mx-auto pb-2 pt-4 px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

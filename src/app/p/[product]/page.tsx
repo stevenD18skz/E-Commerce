@@ -1,7 +1,7 @@
 // app/p/[product]/page.tsx
 
 import { products } from "@/lib/data";
-import ProductDetails from "./product-details";
+import ProductDetails from "@/app/p/[product]/components/product-details";
 import CarrouselProducts from "@/components/ui/CarrouselProducts";
 
 interface PageProps {

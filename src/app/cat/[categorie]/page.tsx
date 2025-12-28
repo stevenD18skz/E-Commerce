@@ -5,8 +5,8 @@ import CarrouselProducts from "@/components/ui/CarrouselProducts";
 import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
 
-import TableCategorie from "@/components/categoria/TableCategorie";
-import TableCategorieSkeleton from "@/components/categoria/TableCategorieSkeleton";
+import TableCategorie from "@/app/cat/[categorie]/components/TableCategorie";
+import TableCategorieSkeleton from "@/app/cat/[categorie]/components/TableCategorieSkeleton";
 
 export default async function Page(props: {
   searchParams?: Promise<{
