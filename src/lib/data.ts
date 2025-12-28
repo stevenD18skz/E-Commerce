@@ -1146,6 +1146,21 @@ const offers = [
     discount: 32,
     timeLeft: 3,
   },
+  {
+    ...products[12],
+    discount: 20,
+    timeLeft: 1,
+  },
+  {
+    ...products[15],
+    discount: 25,
+    timeLeft: 2,
+  },
+  {
+    ...products[18],
+    discount: 15,
+    timeLeft: 4,
+  },
 ];
 
 export { rooms, categories, products, recommendations, offers };
