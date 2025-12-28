@@ -1,8 +1,8 @@
 // app/p/[product]/page.tsx
 
-import { products } from "@/app/lib/data";
+import { products } from "@/lib/data";
 import ProductDetails from "./product-details";
-import CarrouselProducts from "@/app/ui/CarrouselProducts";
+import CarrouselProducts from "@/components/ui/CarrouselProducts";
 
 interface PageProps {
   params: Promise<{ product: string }>;

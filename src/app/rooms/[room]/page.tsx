@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { rooms, categories } from "../../lib/data";
+import { rooms, categories } from "../../../lib/data";
 // Generar parámetros estáticos basados en los `id` de las habitaciones
 interface PageProps {
   params: Promise<{ room: string }>;

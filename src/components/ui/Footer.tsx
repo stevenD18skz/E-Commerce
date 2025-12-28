@@ -180,25 +180,12 @@ export default function Footer() {
               </p>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-neutral-800">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-neutral-500">
+          <p className="text-sm text-neutral-500">
               © 2024 Muebles Design. Todos los derechos reservados.
             </p>
-            <div className="flex items-center space-x-4">
-              <Image
-                src="https://images.unsplash.com/photo-1580508174046-170816f65662?q=80&w=200"
-                alt="Payment Methods"
-                className="h-6 opacity-75"
-                width={200}
-                height={24}
-              />
-            </div>
-          </div>
         </div>
+
       </div>
     </footer>
   );

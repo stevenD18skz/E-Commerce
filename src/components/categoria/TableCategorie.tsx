@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/app/lib/data";
+import { products } from "@/lib/data";
 
 export default function TableCategorie({ query }: { query: string }) {
   const filteredProducts = products.filter(

@@ -3,9 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ShoppingBag, ArrowRight, Timer } from "lucide-react";
-import { rooms, offers, recommendations } from "./lib/data";
-import Newsletter from "./ui/Newsletter";
-import CarrouselProducts from "./ui/CarrouselProducts";
+import { rooms, offers, recommendations } from "../lib/data";
+import CarrouselProducts from "../components/ui/CarrouselProducts";
 
 export default function Page() {
   return (
@@ -141,7 +140,6 @@ export default function Page() {
           description={"Diseños exclusivos seleccionados para ti"}
         />
 
-        <Newsletter />
       </main>
     </div>
   );

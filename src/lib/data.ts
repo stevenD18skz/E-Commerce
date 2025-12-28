@@ -531,7 +531,7 @@ const categories = [
     id: "sinks",
     name: "Sinks & Faucets",
     image:
-      "https://www.ikea.com/es/es/images/products/langudden-fregadero-1-seno-ac-inox__0865504_pe585234_s5.jpg?f=g",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&auto=format&fit=crop",
     productsAvailable: 15,
     space: "kitchen", // kitchen
   },

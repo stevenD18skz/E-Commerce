@@ -1,13 +1,12 @@
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { categories, recommendations } from "@/app/lib/data";
-import Newsletter from "@/app/ui/Newsletter";
-import CarrouselProducts from "@/app/ui/CarrouselProducts";
-import SearchBar from "@/app/ui/SearchBar";
+import { categories, recommendations } from "@/lib/data";
+import CarrouselProducts from "@/components/ui/CarrouselProducts";
+import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
 
-import TableCategorie from "@/app/ui/categoria/TableCategorie";
-import TableCategorieSkeleton from "@/app/ui/categoria/TableCategorieSkeleton";
+import TableCategorie from "@/components/categoria/TableCategorie";
+import TableCategorieSkeleton from "@/components/categoria/TableCategorieSkeleton";
 
 export default async function Page(props: {
   searchParams?: Promise<{
@@ -59,11 +58,10 @@ export default async function Page(props: {
                 <Link
                   key={category.id}
                   href={`/categories/${category.id}`}
-                  className={`flex items-center w-full px-4 py-2 rounded-lg text-sm ${
-                    "sofas" === category.id
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent"
-                  }`}
+                  className={`flex items-center w-full px-4 py-2 rounded-lg text-sm ${"sofas" === category.id
+                    ? "bg-primary text-primary-foreground"
+                    : "hover:bg-accent"
+                    }`}
                 >
                   {category.name}
                 </Link>
@@ -102,8 +100,6 @@ export default async function Page(props: {
           title="You may also like"
           description="These are some of the products that other customers have bought together with the products in this page."
         ></CarrouselProducts>
-
-        <Newsletter />
       </main>
     </div>
   );
