@@ -1138,15 +1138,13 @@ const recommendations = [
 const offers = [
   {
     ...products[3],
-    discountedPrice: "1,899",
-    discount: "24%",
-    timeLeft: "2 días",
+    discount: 24,
+    timeLeft: 2,
   },
   {
     ...products[9],
-    discountedPrice: "2,499",
-    discount: "32%",
-    timeLeft: "3 días",
+    discount: 32,
+    timeLeft: 3,
   },
 ];
 

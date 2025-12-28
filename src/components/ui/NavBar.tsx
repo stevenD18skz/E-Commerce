@@ -13,10 +13,13 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
+import { useCurrency, Currency } from "../../context/CurrencyContext";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
+  const { currency, setCurrency } = useCurrency();
+
   const categories = [
     { name: "Cocina", icon: <CookingPot />, ref: "/rooms/kitchen" },
     { name: "Sala", icon: <Sofa />, ref: "/rooms/living-room" },
@@ -71,6 +74,18 @@ export default function NavBar() {
 
         {/* Navigation Icons */}
         <div className="flex items-center space-x-6">
+
+          {/* Currency Selector */}
+          <select
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value as Currency)}
+            className="text-sm border-none bg-transparent font-medium text-neutral-700 focus:ring-0 cursor-pointer hover:text-neutral-900"
+          >
+            <option value="COP">COP</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+
           <button className="relative p-3 rounded-xl hover:bg-neutral-50    active:scale-95 transition-all duration-300">
             <User className="h-5 w-5 text-neutral-700" />
           </button>

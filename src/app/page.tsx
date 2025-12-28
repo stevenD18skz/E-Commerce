@@ -5,8 +5,11 @@ import Image from "next/image";
 import { ShoppingBag, ArrowRight, Timer } from "lucide-react";
 import { rooms, offers, recommendations } from "../lib/data";
 import CarrouselProducts from "../components/ui/CarrouselProducts";
+import { useCurrency } from "../context/CurrencyContext";
 
 export default function Page() {
+  const { formatPrice } = useCurrency();
+
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Hero Section */}
@@ -94,7 +97,7 @@ export default function Page() {
                       className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      -{offer.discount}
+                      -{offer.discount}%
                     </div>
                   </div>
                   <div className="p-6 flex flex-col justify-between w-full md:w-3/5">
@@ -107,17 +110,17 @@ export default function Page() {
                       </p>
                       <div className="mt-4 flex items-center space-x-3">
                         <span className="text-2xl font-medium text-neutral-900">
-                          ${offer.discountedPrice}
+                          {formatPrice(offer.price * (1 - offer.discount / 100))}
                         </span>
                         <span className="text-lg text-neutral-400 line-through">
-                          ${offer.price}
+                          {formatPrice(offer.price)}
                         </span>
                       </div>
                     </div>
                     <div className="mt-6 flex items-center justify-between">
                       <div className="flex items-center space-x-2 text-neutral-600">
                         <Timer className="h-5 w-5" />
-                        <span>Termina en {offer.timeLeft}</span>
+                        <span>Termina en <strong>{offer.timeLeft}</strong> días</span>
                       </div>
                       <Link
                         className="px-6 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors flex items-center space-x-2"

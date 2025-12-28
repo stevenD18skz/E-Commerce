@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { useRef, useState } from "react";
+import { useCurrency } from "../../context/CurrencyContext";
 
 type Product = {
   id: string;
@@ -30,6 +31,7 @@ export default function CarrouselProducts({
   title: string;
   description: string;
 }) {
+  const { formatPrice } = useCurrency();
   const [currentIndex, setCurrentIndex] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -136,7 +138,7 @@ export default function CarrouselProducts({
 
                     <p className="mt-1 text-neutral-600">
                       {" "}
-                      <strong>${product.price}</strong>
+                      <strong>{formatPrice(product.price)}</strong>
                     </p>
                   </div>
                 </div>
