@@ -48,6 +48,21 @@ const slides = [
         cta: "Ver combos",
         link: "/rooms/kitchen",
     },
+    {
+        id: 4,
+        title: (
+            <>
+                La mejor oferta
+            </>
+        ),
+        description:
+            "Descubre nuestra colección de muebles modernos y funcionales para crear el hogar de tus sueños.",
+        image:
+            "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=2000&auto=format&fit=crop",
+        cta: "Ver combos",
+        link: "/rooms/sales",
+    },
+    
 ];
 
 export default function HeroCarousel() {

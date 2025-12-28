@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Timer } from "lucide-react";
 import { rooms, offers, recommendations } from "@/lib/data";
 
-import CarrouselProducts from "@/components/ui/CarrouselProducts";
+import CarrouselProducts from "@/components/CarrouselProducts";
 import HeroCarousel from "@/app/home/components/HeroCarousel";
 
 import { useCurrency } from "@/context/CurrencyContext";

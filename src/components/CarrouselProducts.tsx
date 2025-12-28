@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 import { useRef, useState } from "react";
-import { useCurrency } from "../../context/CurrencyContext";
+import { useCurrency } from "@/context/CurrencyContext";
 
 type Product = {
   id: string;
