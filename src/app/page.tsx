@@ -13,10 +13,11 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Hero Section */}
-      <section className="relative mx-4 h-[50vh] rounded-2xl overflow-hidden">
+      <section className="relative h-[70vh] rounded-b-[2rem] overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/70 to-neutral-900/30" />
-        <div className="relative h-full flex flex-col justify-center px-8 sm:px-12">
+
+        <div className="absolute bottom-[10%] left-[5%] flex flex-col justify-center">
           <h1 className="text-4xl sm:text-6xl font-light text-white max-w-2xl">
             Diseño que <span className="font-medium">transforma</span> tu
             espacio
@@ -39,7 +40,7 @@ export default function Page() {
       {/* Main Content */}
       <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Categories Grid */}
-        
+
         <section className="mt-16">
           <div className="flex justify-between items-end mb-8">
             <div>
@@ -51,29 +52,29 @@ export default function Page() {
               </p>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rooms.map((category) => (
-            <Link
-              key={category.title}
-              className="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
-              href={`/rooms/${category.id}`}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                style={{ backgroundImage: `url(${category.cardImage})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-2xl font-medium text-white">
-                  {category.title}
-                </h3>
-                <p className="mt-2 text-neutral-200">
-                  {category.cardDescription}
-                </p>
-              </div>
-            </Link>
-          ))}
+            {rooms.map((category) => (
+              <Link
+                key={category.title}
+                className="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
+                href={`/rooms/${category.id}`}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${category.cardImage})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6">
+                  <h3 className="text-2xl font-medium text-white">
+                    {category.title}
+                  </h3>
+                  <p className="mt-2 text-neutral-200">
+                    {category.cardDescription}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 
