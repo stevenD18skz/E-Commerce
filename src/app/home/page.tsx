@@ -104,7 +104,7 @@ export default function Page() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[var(--text-primary)] text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
+                  <div className="absolute top-3 left-3 bg-rose-700/80 backdrop-blur-sm text-[var(--text-primary)] text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">
                     -{offer.discount}%
                   </div>
                 </div>
