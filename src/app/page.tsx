@@ -39,7 +39,20 @@ export default function Page() {
       {/* Main Content */}
       <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16">
         {/* Categories Grid */}
-        <section className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <section className="mt-16">
+          <div className="flex justify-between items-end mb-8">
+            <div>
+              <h2 className="text-2xl font-medium text-neutral-900">
+                Explora nuestras categorías
+              </h2>
+              <p className="mt-1 text-neutral-600">
+                Descubre las últimas tendencias en muebles y accesorios.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rooms.map((category) => (
             <Link
               key={category.title}
@@ -61,6 +74,7 @@ export default function Page() {
               </div>
             </Link>
           ))}
+          </div>
         </section>
 
         {/* Featured Offers Section */}

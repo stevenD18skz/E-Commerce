@@ -8,7 +8,7 @@ import {
     useEffect,
 } from "react";
 
-export type Currency = "COP" | "USD" | "EUR";
+export type Currency = "COP" | "USD" | "EUR" | "GBP";
 
 interface CurrencyContextType {
     currency: Currency;
@@ -24,12 +24,14 @@ const EXCHANGE_RATES: Record<Currency, number> = {
     USD: 1,
     COP: 4000,
     EUR: 0.92,
+    GBP: 0.79,
 };
 
 const LOCALE_MAP: Record<Currency, string> = {
     USD: "en-US",
     COP: "es-CO",
     EUR: "es-ES",
+    GBP: "en-GB",
 };
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
