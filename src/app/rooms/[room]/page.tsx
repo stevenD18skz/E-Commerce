@@ -4,6 +4,7 @@ import RoomHero from "./components/RoomHero";
 import CategoryList from "./components/CategoryList";
 import DesignShowcase from "./components/DesignShowcase";
 import TipsSection from "./components/TipsSection";
+import Hero from "@/components/ui/Hero";
 
 interface PageProps {
   params: Promise<{ room: string }>;
@@ -25,11 +26,18 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-white pb-20">
-      <RoomHero
-        title={room.title}
-        description={room.description}
-        image={room.heroImage}
-      />
+      
+
+      <Hero slide={
+        {
+          id: 1,
+          title: room.title,
+          description: room.description,
+          image: room.heroImage,
+          cta: "Shop Now",
+          link: `/rooms/${room.id}`,
+        }
+      } />
 
       <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16 mt-[var(--spacing-xl)] space-y-[var(--spacing-xxl)]">
 

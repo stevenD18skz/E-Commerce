@@ -2,7 +2,7 @@
 
 import { products } from "@/lib/data";
 import ProductDetails from "@/app/p/[product]/components/product-details";
-import CarrouselProducts from "@/components/ui/CarrouselProducts";
+import CarrouselProducts from "@/components/CarrouselProducts";
 
 interface PageProps {
   params: Promise<{ product: string }>;
@@ -12,8 +12,6 @@ export default async function Page({ params }: PageProps) {
   // Espera a que se resuelvan los parámetros
   const resolvedParams = await params;
   const productName = decodeURIComponent(resolvedParams.product);
-
-  console.log("Product Name:", productName);
   const product = products.find((p) => p.id === productName);
 
   if (!product) {

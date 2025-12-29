@@ -1,38 +1,46 @@
 import { ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
 import { recommendations } from "@/lib/data";
-import CarrouselProducts from "@/components/ui/CarrouselProducts";
+import CarrouselProducts from "@/components/CarrouselProducts";
 import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
+import Hero from "@/components/ui/Hero";
 
 import TableCategorie from "@/app/cat/[categorie]/components/TableCategorie";
 import TableCategorieSkeleton from "@/app/cat/[categorie]/components/TableCategorieSkeleton";
 import FiltersSidebar from "@/app/cat/[categorie]/components/FiltersSidebar";
 
-export default async function Page(props: {
-  searchParams?: Promise<{
-    query?: string;
-    page?: string;
-  }>;
-}) {
+interface PageProps {
+  params: Promise<{ categorie: string }>;
+  searchParams: Promise<{ query?: string; page?: string }>;
+}
+
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   const searchParams = await props.searchParams;
-  const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
+
+  const categorieName = decodeURIComponent(params.categorie);
+  const query = searchParams.query || "";
+  const currentPage = Number(searchParams.page) || 1;
+ 
+
+
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[300px] mb-12">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?w=2000&auto=format')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-neutral-900/40" />
-        <div className="relative h-full max-w-[120rem] mx-auto px-8 lg:px-16 flex flex-col justify-center">
-          <span className="text-white/80 font-medium tracking-wide uppercase text-sm mb-2">Colección</span>
-          <h1 className="text-5xl font-light text-white mb-6">Sofas & Sillones</h1>
-          <p className="text-xl text-white/90 font-light max-w-xl">Encuentra el equilibrio perfecto entre comodidad y diseño para tu sala de estar.</p>
-        </div>
-      </section>
+      <Hero slide={
+        {
+          id: 1,
+          title: categorieName.charAt(0).toUpperCase() + categorieName.slice(1),
+          description: "Encuentra el equilibrio perfecto entre comodidad y diseño para tu sala de estar.",
+          image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=2070&auto=format&fit=crop",
+          cta: "Shop Now",
+          link: `/cat/${categorieName}`,
+        }
+      } />
 
       {/* Main Content */}
-      <main className="max-w-[120rem] mx-auto px-4 sm:px-8 lg:px-16 pb-20">
+      <main className="max-w-[120rem] mx-auto px-12 mt-12">
         <div className="flex flex-col lg:flex-row gap-12">
 
           {/* Sidebar */}
@@ -100,7 +108,7 @@ export default async function Page(props: {
           </div>
         </div>
 
-        <div className="mt-24 border-t border-neutral-100 pt-16">
+        <div className="">
           <CarrouselProducts
             recommendations={recommendations}
             title="También te podría gustar"
