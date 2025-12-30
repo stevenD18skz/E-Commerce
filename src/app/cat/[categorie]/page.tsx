@@ -13,7 +13,10 @@ import Pagination from "@/app/cat/[categorie]/components/pagination";
 
 interface PageProps {
   params: Promise<{ categorie: string }>;
-  searchParams: Promise<{ query?: string; page?: string }>;
+  searchParams: Promise<{ 
+    query?: string; 
+    page?: string; 
+    itemsPerPage?: string }>;
 }
 
 export default async function Page(props: PageProps) {
@@ -24,13 +27,15 @@ export default async function Page(props: PageProps) {
   const query = searchParams.query || "";
   const currentPage = Number(searchParams.page) || 1;
 
-  const productsCategorie = products.filter(
-    (p) => p
-  );
+  const itemsPerPage = Number(searchParams.itemsPerPage) || 12;  
 
-  const productsVisible = productsCategorie.slice((currentPage - 1) * 12, currentPage * 12);
+  const productsCategorie = [...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products]
 
-  const totalPages = Math.ceil(productsCategorie.length / 12);
+  const totalItems = productsCategorie.length;
+
+  const productsVisible = productsCategorie.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
 
 
@@ -73,10 +78,20 @@ export default async function Page(props: PageProps) {
           {/* Products Grid */}
           <div className="flex-1">
             <div className="flex justify-between items-center mb-6">
-              <p className="text-[var(--text-secondary)] text-sm">{query ? `Resultados para "${query}"` : "Mostrando 12 de 45 productos"}</p>
+              <p className="text-[var(--text-secondary)] text-sm">{query ? `Resultados para "${query}"` : "Mostrando" + " " + itemsPerPage + " de " + totalItems + " productos"}</p>
 
               {/* Sort Dropdown (Static for UI) */}
               <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                
+                <span>Mostrar:</span>
+                <select className="bg-transparent font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer">
+                  <option value="12">12</option>
+                  <option value="24">24</option>
+                  <option value="48">48</option>
+                  <option value="all">Todo</option>
+                </select>
+
+
                 <span>Ordenar por:</span>
                 <select className="bg-transparent font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer">
                   <option>Relevancia</option>
