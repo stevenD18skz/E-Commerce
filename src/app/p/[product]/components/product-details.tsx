@@ -2,58 +2,79 @@
 
 import { Heart, Star, Minus, Plus, Truck, Package } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { useCurrency } from "@/context/CurrencyContext";
+import { inOffer, inWishlist } from "@/utils/products";
+import { Product } from "@/types/product";
 
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-  reviews: number;
-  rating: number;
-  description: string;
-  colors: string[];
-  images: string[];
-  delivery: {
-    time: string;
-    cost: number;
-  };
-};
+
 
 export default function ProductDetails({ product }: { product: Product }) {
   const sizes = ["S", "M", "L", "XL"];
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState(sizes[1]);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [formData, setFormData] = useState({
+    color: product.colors[0],
+    size: sizes[1],
+    image: 0,
+    quantity: 1,
+  });
+
+  const [extraData, setExtraData] = useState<{ offer: any; wishlist: any }>({
+    offer: null,
+    wishlist: null,
+  });
+
   const { formatPrice } = useCurrency();
 
+  useEffect(() => {
+    const offer = inOffer(product);
+    const wishlist = inWishlist(product);
+
+    setExtraData({
+      offer: offer || null,
+      wishlist: wishlist || null,
+    });
+  }, [product]);
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const selectedElement = scrollContainerRef.current.children[formData.image] as HTMLElement;
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  }, [formData.image]);
+
   return (
-    <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+    <div className="flex flex-col lg:flex-row gap-[var(--spacing-md)]">
       {/* Left Column - Gallery */}
-      <div className="w-full lg:w-[60%] space-y-4">
+      <div className="w-full lg:w-[50%] space-y-[var(--spacing-md)]">
         {/* Main Image */}
-        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 group cursor-zoom-in">
+        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-zoom-in">
           <Image
-            src={product.images[selectedImage]}
+            src={product.images[formData.image]}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
             priority
           />
         </div>
 
-        {/* Thumbnails */}
-        <div className="grid grid-cols-4 gap-4">
+        {/* Thumbnails Carousel */}
+        <div ref={scrollContainerRef} className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 snap-x">
           {product.images.map((image, index) => (
             <button
               key={index}
-              onClick={() => setSelectedImage(index)}
+              onClick={() => setFormData({ ...formData, image: index })}
               className={clsx(
-                "relative aspect-square rounded-xl overflow-hidden border-2 transition-all",
-                selectedImage === index
+                "relative flex-shrink-0 w-32 h-32 rounded-2xl overflow-hidden border-2 transition-all snap-start",
+                formData.image === index
                   ? "border-neutral-900 opacity-100"
                   : "border-transparent opacity-70 hover:opacity-100"
               )}
@@ -70,14 +91,15 @@ export default function ProductDetails({ product }: { product: Product }) {
       </div>
 
       {/* Right Column - Product Info */}
-      <div className="w-full lg:w-[40%] flex flex-col pt-2">
+      <div className="w-full lg:w-[50%] space-y-[var(--spacing-md)]">
         {/* Header */}
-        <div className="flex justify-between items-start mb-6">
+        <div className="flex justify-between items-start">
           <div>
             <h1 className="text-4xl font-light text-[var(--text-primary)] mb-2 tracking-tight">
               {product.name}
             </h1>
-            <div className="flex items-center gap-2 mb-4">
+
+            <div className="flex items-center gap-2">
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -93,20 +115,33 @@ export default function ProductDetails({ product }: { product: Product }) {
                 {product.reviews} reseñas
               </span>
             </div>
-            <p className="text-3xl font-medium text-[var(--text-primary)]">
-              {formatPrice(product.price)}
-            </p>
+
+            {extraData.offer ? (
+              <div className="">
+                <p className="text-2xl font-medium text-rose-500">
+                  {formatPrice(product.price - (product.price * extraData.offer.discount / 100))}
+                </p>
+                <p className="text-lg font-medium text-[var(--text-primary)] line-through italic">
+                  {formatPrice(product.price)}
+                </p>
+              </div>
+            ) : (
+              <p className="text-lg font-medium text-[var(--text-primary)]">
+                {formatPrice(product.price)}
+              </p>
+            )
+            }
           </div>
 
           <button
-            onClick={() => setIsFavorite(!isFavorite)}
+            onClick={() => setExtraData({ ...extraData, wishlist: true })}
             className="p-3 hover:bg-neutral-100 rounded-full transition-colors group"
             aria-label="Add to favorites"
           >
             <Heart
               className={clsx(
                 "w-6 h-6 transition-colors",
-                isFavorite
+                extraData.wishlist
                   ? "fill-red-500 text-red-500"
                   : "text-neutral-400 group-hover:text-neutral-600"
               )}
@@ -115,27 +150,25 @@ export default function ProductDetails({ product }: { product: Product }) {
         </div>
 
         {/* Description */}
-        <div className="prose prose-neutral mb-8">
+        <div className="prose prose-neutral">
           <p className="text-[var(--text-secondary)] leading-relaxed font-light">
             {product.description}
           </p>
         </div>
 
-        <div className="h-px bg-neutral-100 w-full mb-8" />
-
         {/* Options */}
-        <div className="space-y-6 mb-8">
+        <div className="">
           {/* Colors */}
           <div>
-            <span className="text-sm font-medium text-[var(--text-primary)] mb-3 block">Color</span>
+            <span className="text-sm font-medium text-[var(--text-primary)] block">Color</span>
             <div className="flex gap-3">
               {product.colors.map((color) => (
                 <button
                   key={color}
-                  onClick={() => setSelectedColor(color)}
+                  onClick={() => setFormData({ ...formData, color: color })}
                   className={clsx(
                     "w-10 h-10 rounded-full border-2 transition-all ring-offset-2",
-                    selectedColor === color ? "border-neutral-900 scale-110" : "border-transparent hover:scale-105"
+                    formData.color === color ? "border-neutral-900 scale-110" : "border-transparent hover:scale-105"
                   )}
                   style={{ backgroundColor: color }}
                   aria-label={`Select color ${color}`}
@@ -146,15 +179,15 @@ export default function ProductDetails({ product }: { product: Product }) {
 
           {/* Sizes (Mockup mainly for furniture dimensions usually, but kept for logic consistency) */}
           <div>
-            <span className="text-sm font-medium text-[var(--text-primary)] mb-3 block">Tamaño</span>
+            <span className="text-sm font-medium text-[var(--text-primary)] block">Tamaño</span>
             <div className="flex gap-3">
               {sizes.map((size) => (
                 <button
                   key={size}
-                  onClick={() => setSelectedSize(size)}
+                  onClick={() => setFormData({ ...formData, size: size })}
                   className={clsx(
                     "w-12 h-10 rounded-lg text-sm font-medium transition-all border",
-                    selectedSize === size
+                    formData.size === size
                       ? "bg-neutral-900 text-white border-neutral-900"
                       : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
                   )}
@@ -167,18 +200,18 @@ export default function ProductDetails({ product }: { product: Product }) {
         </div>
 
         {/* Actions */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex gap-4">
           {/* Quantity */}
           <div className="flex items-center border border-neutral-200 rounded-full px-4 gap-4 h-14">
             <button
-              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              onClick={() => setFormData({ ...formData, quantity: Math.max(1, formData.quantity - 1) })}
               className="text-neutral-500 hover:text-black transition-colors"
             >
               <Minus className="w-4 h-4" />
             </button>
-            <span className="font-medium text-[var(--text-primary)] w-4 text-center">{quantity}</span>
+            <span className="font-medium text-[var(--text-primary)] w-4 text-center">{formData.quantity}</span>
             <button
-              onClick={() => setQuantity(quantity + 1)}
+              onClick={() => setFormData({ ...formData, quantity: formData.quantity + 1 })}
               className="text-neutral-500 hover:text-black transition-colors"
             >
               <Plus className="w-4 h-4" />
@@ -191,7 +224,7 @@ export default function ProductDetails({ product }: { product: Product }) {
         </div>
 
         {/* Delivery Info */}
-        <div className="bg-neutral-50 rounded-2xl p-5 space-y-4">
+        <div className="bg-neutral-100 rounded-2xl p-5 space-y-4">
           <div className="flex items-start gap-4">
             <div className="bg-white p-2.5 rounded-full shadow-sm text-neutral-700">
               <Truck className="w-5 h-5" />

@@ -4,10 +4,12 @@ import CarrouselProducts from "@/components/CarrouselProducts";
 import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
 import Hero from "@/components/ui/Hero";
+import { products } from "@/lib/data";
 
 import TableCategorie from "@/app/cat/[categorie]/components/TableCategorie";
 import TableCategorieSkeleton from "@/app/cat/[categorie]/components/TableCategorieSkeleton";
 import FiltersSidebar from "@/app/cat/[categorie]/components/FiltersSidebar";
+import Pagination from "@/app/cat/[categorie]/components/pagination";
 
 interface PageProps {
   params: Promise<{ categorie: string }>;
@@ -21,7 +23,14 @@ export default async function Page(props: PageProps) {
   const categorieName = decodeURIComponent(params.categorie);
   const query = searchParams.query || "";
   const currentPage = Number(searchParams.page) || 1;
- 
+
+  const productsCategorie = products.filter(
+    (p) => p
+  );
+
+  const productsVisible = productsCategorie.slice((currentPage - 1) * 12, currentPage * 12);
+
+  const totalPages = Math.ceil(productsCategorie.length / 12);
 
 
 
@@ -40,7 +49,9 @@ export default async function Page(props: PageProps) {
       } />
 
       {/* Main Content */}
-      <main className="max-w-[120rem] mx-auto px-12 mt-12">
+      <main
+        id="main-content"
+        className="max-w-[120rem] mx-auto px-12 mt-12">
         <div className="flex flex-col lg:flex-row gap-12">
 
           {/* Sidebar */}
@@ -80,31 +91,18 @@ export default async function Page(props: PageProps) {
               key={query + currentPage}
               fallback={<TableCategorieSkeleton />}
             >
-              <TableCategorie query={query} />
+              <TableCategorie products={productsVisible} />
             </Suspense>
 
             {/* Pagination */}
-            <div className="flex items-center justify-center space-x-2 mt-16">
-              <button disabled={currentPage === 1} className="p-2 rounded-full hover:bg-neutral-100 disabled:opacity-30 disabled:hover:bg-transparent transition-colors">
-                <ChevronLeft className="w-5 h-5" />
-              </button>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              categorieName={categorieName}
+              searchParams={searchParams}
 
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, '...', 10].map((page, i) => (
-                  <button
-                    key={i}
-                    className={`w-10 h-10 rounded-full text-sm font-medium transition-colors ${page === currentPage ? "bg-neutral-900 text-white" : "hover:bg-neutral-100 text-neutral-600"}`}
-                    disabled={typeof page === 'string'}
-                  >
-                    {page}
-                  </button>
-                ))}
-              </div>
+            />
 
-              <button className="p-2 rounded-full hover:bg-neutral-100 transition-colors">
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
         </div>
 

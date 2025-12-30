@@ -1,31 +1,29 @@
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/lib/data";
 import { Heart, ShoppingBag } from "lucide-react";
+import { Product } from "@/types/product";
 
-export default function TableCategorie({ query }: { query: string }) {
-  const filteredProducts = products.filter(
-    (p) =>
-      p.category === "sofas" &&
-      p.name.toLowerCase().includes(query.toLowerCase())
-  );
+interface TableCategorieProps {
+  products: Product[];
+}
+
+export default function TableCategorie({ products }: TableCategorieProps) {
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
-      {filteredProducts.map((product) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+      {products.map((product) => (
         <Link
           key={product.id}
           href={`/p/${encodeURIComponent(product.id)}`}
-          className="group block"
+          className="group block p-3 rounded-xl transition-all duration-300  hover:shadow-md"
         >
           {/* Image Container */}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-100 mb-4">
+          <div className="relative aspect-square overflow-hidden rounded-xl bg-neutral-100 mb-4">
             <Image
-              width={500}
-              height={600}
+              fill
               src={product.images[0]}
               alt={product.name}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+              className="transition-transform duration-700 ease-in-out group-hover:scale-105"
             />
 
             {/* Overlay Actions */}

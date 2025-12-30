@@ -35,7 +35,7 @@ export default async function Page({ params }: PageProps) {
       <CarrouselProducts
         recommendations={products}
         title="You may also like"
-        description="These are some of the products that other customers have bought together with the products on this page."
+        description="These are some of the products that other customers have bought together"
       />
     </div>
   );
