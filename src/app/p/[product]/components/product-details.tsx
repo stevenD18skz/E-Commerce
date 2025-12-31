@@ -89,7 +89,7 @@ export default function ProductDetails({ product }: { product: Product }) {
             </button>
           ))}
         </div>
-      </div>  
+      </div>
 
       {/* Right Column - Product Info */}
       <div className="w-[50%] px-[var(--spacing-md)] space-y-[var(--spacing-sm)]">

@@ -12,14 +12,9 @@ import {
 
 import { useRef, useState } from "react";
 import { useCurrency } from "@/context/CurrencyContext";
+import { Product } from "@/types/product";
 
-type Product = {
-  id: string;
-  name: string;
-  images: string[];
-  rating: number;
-  price: number;
-};
+
 
 export default function CarrouselProducts({
   recommendations,

@@ -1,6 +1,6 @@
 // app/p/[product]/page.tsx
 
-import { products } from "@/lib/data";
+import { MOCK_PRODUCTS, MOCK_RECOMMENDATIONS } from "@/lib/data";
 import ProductDetails from "@/app/p/[product]/components/product-details";
 import ProductReviews from "@/app/p/[product]/components/reviews";
 import CarrouselProducts from "@/components/CarrouselProducts";
@@ -13,7 +13,7 @@ export default async function Page({ params }: PageProps) {
   // Espera a que se resuelvan los parámetros
   const resolvedParams = await params;
   const productName = decodeURIComponent(resolvedParams.product);
-  const product = products.find((p) => p.id === productName);
+  const product = MOCK_PRODUCTS.find((p) => p.id === productName);
 
   if (!product) {
     return (
@@ -37,7 +37,7 @@ export default async function Page({ params }: PageProps) {
       <ProductReviews />
 
       <CarrouselProducts
-        recommendations={products}
+        recommendations={MOCK_RECOMMENDATIONS}
         title="You may also like"
         description="These are some of the products that other customers have bought together"
       />

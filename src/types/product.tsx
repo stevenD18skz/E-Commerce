@@ -17,17 +17,13 @@ interface Product {
 
 interface Offer {
     id: string;
-    name: string;
-    description: string;
     discount: number;
-    image: string;
+    daysLeft: number;
 }
 
 interface Wishlist {
     id: string;
-    name: string;
-    description: string;
-    image: string;
+    date: string;
 }
 
 export type { Product, Offer, Wishlist };
