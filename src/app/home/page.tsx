@@ -3,20 +3,47 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Timer } from "lucide-react";
-import { MOCK_ROOMS, MOCK_OFFERS, MOCK_RECOMMENDATIONS, MOCK_PRODUCTS } from "@/lib/data";
+import { getAllRooms } from "@/ports/rooms";
+import { getAllOffers, getRecommendations } from "@/ports/products";
+
+
+
 
 import CarrouselProducts from "@/components/CarrouselProducts";
 import HeroCarousel from "@/app/home/components/HeroCarousel";
+import HomeSkeleton from "./components/HomeSkeleton";
 
 import { useCurrency } from "@/context/CurrencyContext";
+import { useEffect, useState } from "react";
+import { Room } from "@/types/room";
+import { Product, Offer } from "@/types/product";
 
 export default function Page() {
   const { formatPrice } = useCurrency();
+  const [rooms, setRooms] = useState<Room[]>([]);
+  const [offers, setOffers] = useState<(Product & Offer)[]>([]);
+  const [recommendations, setRecommendations] = useState<Product[]>([]);
 
-  const offers = MOCK_OFFERS.map((offer) => {
-    const product = MOCK_PRODUCTS.find((p) => p.id === offer.id);
-    return product ? { ...product, ...offer } : null;
-  }).filter((item) => item !== null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    // Use Promise.all to fetch all data in parallel
+    Promise.all([
+      getAllRooms(),
+      getAllOffers(),
+      getRecommendations()
+    ]).then(([roomsData, offersData, recommendationsData]) => {
+      setRooms(roomsData);
+      setOffers(offersData);
+      setRecommendations(recommendationsData);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <HomeSkeleton />;
+  }
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -39,16 +66,16 @@ export default function Page() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {MOCK_ROOMS.map((category) => (
+            {rooms.map((room) => (
               <Link
-                key={category.title}
+                key={room.title}
                 className="group relative h-[440px] rounded-2xl overflow-hidden cursor-pointer block bg-neutral-100"
-                href={`/rooms/${category.id}`}
+                href={`/rooms/${room.id}`}
               >
                 {/* Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-110"
-                  style={{ backgroundImage: `url(${category.cardImage})` }}
+                  style={{ backgroundImage: `url(${room.cardImage})` }}
                 />
 
                 {/* Gradient Overlays - Darker at bottom for text readability */}
@@ -58,10 +85,10 @@ export default function Page() {
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                     <h3 className="text-3xl font-light text-white tracking-tight mb-3">
-                      {category.title} Collection
+                      {room.title} Collection
                     </h3>
                     <p className="text-neutral-200 text-sm font-light leading-relaxed max-w-[90%] opacity-90 group-hover:text-white transition-colors">
-                      {category.cardDescription}
+                      {room.cardDescription}
                     </p>
                   </div>
 
@@ -158,7 +185,7 @@ export default function Page() {
         {/* Recommendations Section */}
         <section className="">
           <CarrouselProducts
-            recommendations={MOCK_RECOMMENDATIONS}
+            recommendations={recommendations}
             title={"Productos destacados"}
             description={"Diseños exclusivos seleccionados para ti"}
           />

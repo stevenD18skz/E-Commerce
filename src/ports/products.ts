@@ -44,7 +44,7 @@ export const getProductById = async (productId: string) => {
  * Obtiene las ofertas activas.
  * Simula un join con los productos para devolver la información completa.
  */
-export const getOffers = async () => {
+export const getAllOffers = async (): Promise<(Product & Offer)[]> => {
     await new Promise(resolve => setTimeout(resolve, SIMULATED_DELAY));
 
     // Mapeamos las ofertas para incluir la data del producto (Simulación de Backend)
