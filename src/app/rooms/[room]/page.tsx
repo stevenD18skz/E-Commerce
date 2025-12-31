@@ -1,5 +1,10 @@
 import { notFound } from "next/navigation";
-import { MOCK_ROOMS, MOCK_CATEGORIES } from "@/lib/data";
+import {
+  MOCK_ROOMS,
+  getCategoriesByRoom,
+  getDesignsByRoom,
+  getTipsByRoom
+} from "@/lib/data";
 import CategoryList from "./components/CategoryList";
 import DesignShowcase from "./components/DesignShowcase";
 import TipsSection from "./components/TipsSection";
@@ -20,13 +25,13 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  // Filter categories for this specific room
-  const roomCategories = MOCK_CATEGORIES.filter((c) => c.space === room.id);
+  // Use helper functions to get related data (Simulated Joins/Foreign Keys)
+  const roomCategories = getCategoriesByRoom(room.id);
+  const roomDesigns = getDesignsByRoom(room.id);
+  const roomTips = getTipsByRoom(room.id);
 
   return (
     <div className="min-h-screen bg-white pb-20">
-      
-
       <Hero slide={
         {
           id: 1,
@@ -42,9 +47,9 @@ export default async function Page({ params }: PageProps) {
 
         <CategoryList categories={roomCategories} />
 
-        <DesignShowcase designs={room.prebuiltDesigns} />
+        <DesignShowcase designs={roomDesigns} />
 
-        <TipsSection tips={room.tips} />
+        <TipsSection tips={roomTips} />
 
       </main>
     </div>

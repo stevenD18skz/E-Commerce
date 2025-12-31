@@ -6,13 +6,16 @@ import Image from "next/image";
 import { Trash2, ShoppingBag, Star, ArrowRight } from "lucide-react";
 import { useCurrency } from "@/context/CurrencyContext";
 import { Product } from "@/types/product";
-import { MOCK_WISHLIST } from "@/lib/data";
-
-
-
+import { MOCK_WISHLIST, MOCK_PRODUCTS } from "@/lib/data";
 
 export default function WishlistPage() {
-  const [wishlistItems, setWishlistItems] = useState<Product[]>(MOCK_WISHLIST);
+  // Simulate Join: Map wishlist IDs to actual product objects
+  const [wishlistItems, setWishlistItems] = useState<Product[]>(() => {
+    return MOCK_WISHLIST.map(item => {
+      return MOCK_PRODUCTS.find(p => p.id === item.id);
+    }).filter((p): p is Product => p !== undefined);
+  });
+
   const { formatPrice } = useCurrency();
 
   const handleRemoveFromWishlist = (id: string) => {
@@ -114,7 +117,7 @@ export default function WishlistPage() {
                   </span>
                 </div>
                 <p className="text-sm text-neutral-500 font-light line-clamp-1">
-                  {product.category}
+                  {product.categoryId}
                 </p>
 
                 {/* Mobile Add to Cart Button */}

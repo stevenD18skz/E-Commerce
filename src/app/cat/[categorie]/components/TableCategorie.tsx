@@ -55,7 +55,7 @@ export default function TableCategorie({ products }: TableCategorieProps) {
             </div>
 
             <p className="text-sm text-[var(--text-secondary)] line-clamp-1">
-              {product.category} Collection
+              {product.categoryId} Collection
             </p>
 
             <div className="flex items-center gap-1 pt-1">

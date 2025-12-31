@@ -58,7 +58,7 @@ export default function Page() {
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <div className="transform transition-transform duration-500 group-hover:-translate-y-4">
                     <h3 className="text-3xl font-light text-white tracking-tight mb-3">
-                      {category.title}
+                      {category.title} Collection
                     </h3>
                     <p className="text-neutral-200 text-sm font-light leading-relaxed max-w-[90%] opacity-90 group-hover:text-white transition-colors">
                       {category.cardDescription}
@@ -139,7 +139,7 @@ export default function Page() {
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-50 mt-2">
                     <div className="flex items-center gap-2 text-xs font-medium text-amber-700 bg-amber-50 px-3 py-1.5 rounded-full">
                       <Timer className="h-3.5 w-3.5" />
-                      <span>{offer.timeLeft} días restantes</span>
+                      <span>{offer.daysLeft} días restantes</span>
                     </div>
 
                     <Link

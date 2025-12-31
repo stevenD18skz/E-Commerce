@@ -1,8 +1,8 @@
 interface Category {
-    id: number;
+    id: string;
     name: string;
     slug: string;
     image: string;
 }
 
-export default Category;
+export type { Category };
