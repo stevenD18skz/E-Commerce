@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 
 import { useCurrency } from "@/context/CurrencyContext";
 
-import CarrouselProducts from "@/components/CarrouselProducts";
-import HeroCarousel from "@/app/home/components/HeroCarousel";
 import HomeSkeleton from "./components/HomeSkeleton";
+import HeroCarousel from "@/app/home/components/HeroCarousel";
+import CarrouselProducts from "@/components/CarrouselProducts";
 
 import { Room } from "@/types/room";
 import { Product, Offer } from "@/types/product";

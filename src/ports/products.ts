@@ -65,11 +65,12 @@ export const getRecommendations = async (): Promise<Product[]> => {
 /**
  * Obtiene la wishlist inicial del usuario.
  */
-export const getWishlist = async (): Promise<Product[]> => {
+export const getWishlist = async (): Promise<(Product & Wishlist)[]> => {
     await new Promise(resolve => setTimeout(resolve, SIMULATED_DELAY));
 
     // Join wishlist con productos
     return MOCK_WISHLIST.map(item => {
-        return MOCK_PRODUCTS.find(p => p.id === item.id);
-    }).filter((p): p is Product => p !== undefined);
+        const product = MOCK_PRODUCTS.find(p => p.id === item.id);
+        return product ? { ...product, ...item } : null;
+    }).filter((p): p is (Product & Wishlist) => p !== null);
 };

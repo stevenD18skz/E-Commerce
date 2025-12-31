@@ -18,14 +18,16 @@ export default async function Page({ params }: PageProps) {
 
   const room = await getRoomById(roomName);
 
-  // Use helper functions to get related data (Simulated Joins/Foreign Keys)
-  const roomCategories = await getCategoriesByRoom(room?.id);
-  const roomDesigns = await getDesignsByRoom(room?.id);
-  const roomTips = await getTipsByRoom(room?.id);
 
   if (!room) {
     notFound();
   }
+
+    // Use helper functions to get related data (Simulated Joins/Foreign Keys)
+  const roomCategories = await getCategoriesByRoom(room?.id);
+  const roomDesigns = await getDesignsByRoom(room?.id);
+  const roomTips = await getTipsByRoom(room?.id);
+
 
   return (
     <div className="min-h-screen bg-white pb-20">

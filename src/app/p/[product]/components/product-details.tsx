@@ -202,7 +202,7 @@ export default function ProductDetails({ product }: { product: Product }) {
             Añadir al carrito
           </button>
           <button
-            onClick={() => setExtraData({ ...extraData, wishlist: true })}
+            onClick={() => console.log('wishlist')}
             className="border border-neutral-200 rounded-full px-4 py-2 hover:bg-neutral-100 transition-colors group"
             aria-label="Add to favorites"
           >

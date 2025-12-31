@@ -3,13 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
-interface Category {
-    id: string;
-    name: string;
-    image: string;
-    productsAvailable: number;
-}
+import { Category } from "@/types/room";
 
 interface CategoryListProps {
     categories: Category[];
@@ -53,7 +47,7 @@ export default function CategoryList({ categories }: CategoryListProps) {
                         <div className="absolute bottom-0 left-0 p-5 w-full">
                             <h3 className="text-white font-medium text-lg tracking-wide">{category.name}</h3>
                             <p className="text-white/70 text-xs mt-1 font-light tracking-wider uppercase">
-                                {category.productsAvailable} productos
+                                22 productos
                             </p>
                         </div>
                     </Link>
