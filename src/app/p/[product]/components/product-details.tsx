@@ -6,8 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import { useCurrency } from "@/context/CurrencyContext";
 import { inOffer, inWishlist } from "@/utils/products";
-import { Product } from "@/types/product";
-
+import { Product, Offer, Wishlist } from "@/types/product";
 
 
 export default function ProductDetails({ product }: { product: Product }) {
@@ -19,7 +18,7 @@ export default function ProductDetails({ product }: { product: Product }) {
     quantity: 1,
   });
 
-  const [extraData, setExtraData] = useState<{ offer: any; wishlist: any }>({
+  const [extraData, setExtraData] = useState<{ offer: Offer | null; wishlist: Wishlist | null }>({
     offer: null,
     wishlist: null,
   });

@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Star, ThumbsUp, MoreHorizontal, Filter, ChevronDown, Check, User } from "lucide-react";
-import clsx from "clsx";
+import { Star, ThumbsUp, ChevronDown, Check, User } from "lucide-react";
+import  {clsx} from "clsx";
 import Image from "next/image";
 
 // --- Mock Data ---
@@ -106,7 +105,6 @@ function StarRating({ rating, size = "md" }: { rating: number; size?: "sm" | "md
 }
 
 export default function ProductReviews() {
-  const [filter, setFilter] = useState("Más recientes");
 
   return (
     <section className="py-12 border-t border-neutral-100 mt-12 bg-white">

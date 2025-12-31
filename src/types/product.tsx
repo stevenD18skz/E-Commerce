@@ -15,4 +15,19 @@ interface Product {
     brand?: string;
 }
 
-export type { Product };
+interface Offer {
+    id: string;
+    name: string;
+    description: string;
+    discount: number;
+    image: string;
+}
+
+interface Wishlist {
+    id: string;
+    name: string;
+    description: string;
+    image: string;
+}
+
+export type { Product, Offer, Wishlist };

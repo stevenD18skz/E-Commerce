@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
-import { rooms, categories } from "@/lib/data";
-import RoomHero from "./components/RoomHero";
+import { MOCK_ROOMS, MOCK_CATEGORIES } from "@/lib/data";
 import CategoryList from "./components/CategoryList";
 import DesignShowcase from "./components/DesignShowcase";
 import TipsSection from "./components/TipsSection";
@@ -15,14 +14,14 @@ export default async function Page({ params }: PageProps) {
   const resolvedParams = await params;
   const roomName = decodeURIComponent(resolvedParams.room);
 
-  const room = rooms.find((p) => p.id === roomName);
+  const room = MOCK_ROOMS.find((p) => p.id === roomName);
 
   if (!room) {
     notFound();
   }
 
   // Filter categories for this specific room
-  const roomCategories = categories.filter((c) => c.space === room.id);
+  const roomCategories = MOCK_CATEGORIES.filter((c) => c.space === room.id);
 
   return (
     <div className="min-h-screen bg-white pb-20">

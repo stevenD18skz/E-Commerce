@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Timer } from "lucide-react";
-import { rooms, offers, recommendations } from "@/lib/data";
+import { MOCK_ROOMS, MOCK_OFFERS, MOCK_RECOMMENDATIONS, MOCK_PRODUCTS } from "@/lib/data";
 
 import CarrouselProducts from "@/components/CarrouselProducts";
 import HeroCarousel from "@/app/home/components/HeroCarousel";
@@ -12,6 +12,11 @@ import { useCurrency } from "@/context/CurrencyContext";
 
 export default function Page() {
   const { formatPrice } = useCurrency();
+
+  const offers = MOCK_OFFERS.map((offer) => {
+    const product = MOCK_PRODUCTS.find((p) => p.id === offer.id);
+    return product ? { ...product, ...offer } : null;
+  }).filter((item) => item !== null);
 
   return (
     <div className="min-h-screen bg-neutral-50">
@@ -34,7 +39,7 @@ export default function Page() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rooms.map((category) => (
+            {MOCK_ROOMS.map((category) => (
               <Link
                 key={category.title}
                 className="group relative h-[440px] rounded-2xl overflow-hidden cursor-pointer block bg-neutral-100"
@@ -153,7 +158,7 @@ export default function Page() {
         {/* Recommendations Section */}
         <section className="">
           <CarrouselProducts
-            recommendations={recommendations}
+            recommendations={MOCK_RECOMMENDATIONS}
             title={"Productos destacados"}
             description={"Diseños exclusivos seleccionados para ti"}
           />

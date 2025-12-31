@@ -1,10 +1,9 @@
 import { SlidersHorizontal } from "lucide-react";
-import { recommendations } from "@/lib/data";
+import { MOCK_RECOMMENDATIONS, MOCK_PRODUCTS } from "@/lib/data";
 import CarrouselProducts from "@/components/CarrouselProducts";
 import SearchBar from "@/components/ui/SearchBar";
 import { Suspense } from "react";
 import Hero from "@/components/ui/Hero";
-import { products } from "@/lib/data";
 
 import TableCategorie from "@/app/cat/[categorie]/components/TableCategorie";
 import TableCategorieSkeleton from "@/app/cat/[categorie]/components/TableCategorieSkeleton";
@@ -56,10 +55,10 @@ export default async function Page(props: PageProps) {
   const sortOption = searchParams.sort || "relevance";
 
   // Base Products (Duplicated for demo volume as in original)
-  const productsCategorie = [...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products, ...products];
+  const productsCategorie = [...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS, ...MOCK_PRODUCTS];
 
   // Apply Filters
-  let filteredProducts = productsCategorie.filter((product) => {
+  const filteredProducts = productsCategorie.filter((product) => {
     // 1. Search Query
     if (query && !product.name.toLowerCase().includes(query.toLowerCase())) {
       return false;
@@ -186,7 +185,7 @@ export default async function Page(props: PageProps) {
 
         <div className="">
           <CarrouselProducts
-            recommendations={recommendations}
+            recommendations={MOCK_RECOMMENDATIONS}
             title="También te podría gustar"
             description="Productos comprados frecuentemente con esta colección."
           />

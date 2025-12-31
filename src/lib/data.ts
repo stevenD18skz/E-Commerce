@@ -1,7 +1,7 @@
 import { Product } from "@/types/product";
 
 // Mock room data - in a real app this would come from an API/database
-const rooms = [
+const MOCK_ROOMS = [
   {
     id: "kitchen",
     title: "Kitchen",
@@ -496,7 +496,7 @@ const rooms = [
   },
 ];
 
-const categories = [
+const MOCK_CATEGORIES = [
   {
     id: "refrigerators",
     name: "Refrigerators",
@@ -597,7 +597,7 @@ const categories = [
   },
 ];
 
-const products = [
+const MOCK_PRODUCTS = [
   {
     id: "ilana-sofa",
     name: "Ilana",
@@ -1128,48 +1128,48 @@ const products = [
   },
 ];
 
-const recommendations = [
-  products[1],
-  products[2],
-  products[3],
-  products[4],
-  products[5],
-  products[6],
-  products[7],
-  products[8],
-  products[9],
-  products[10],
-  products[11],
-  products[12],
-  products[13],
-  products[14],
-  products[15],
-  products[16],
+const MOCK_RECOMMENDATIONS = [
+  MOCK_PRODUCTS[1],
+  MOCK_PRODUCTS[2],
+  MOCK_PRODUCTS[3],
+  MOCK_PRODUCTS[4],
+  MOCK_PRODUCTS[5],
+  MOCK_PRODUCTS[6],
+  MOCK_PRODUCTS[7],
+  MOCK_PRODUCTS[8],
+  MOCK_PRODUCTS[9],
+  MOCK_PRODUCTS[10],
+  MOCK_PRODUCTS[11],
+  MOCK_PRODUCTS[12],
+  MOCK_PRODUCTS[13],
+  MOCK_PRODUCTS[14],
+  MOCK_PRODUCTS[15],
+  MOCK_PRODUCTS[16],
 ];
 
-const offers = [
+const MOCK_OFFERS = [
   {
-    ...products[3],
+    id: MOCK_PRODUCTS[3].id,
     discount: 24,
     timeLeft: 2,
   },
   {
-    ...products[9],
+    id: MOCK_PRODUCTS[9].id,
     discount: 32,
     timeLeft: 3,
   },
   {
-    ...products[12],
+    id: MOCK_PRODUCTS[12].id,
     discount: 20,
     timeLeft: 1,
   },
   {
-    ...products[15],
+    id: MOCK_PRODUCTS[15].id,
     discount: 25,
     timeLeft: 2,
   },
   {
-    ...products[18],
+    id: MOCK_PRODUCTS[18].id,
     discount: 15,
     timeLeft: 4,
   },
@@ -1224,7 +1224,7 @@ const MOCK_WISHLIST: Product[] = [
     images: ["https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=2868&auto=format&fit=crop"],
     delivery: { time: "5-7 días", cost: 50 },
   },
-  ...products,
-];
+  ...MOCK_PRODUCTS,
+];  
 
-export { rooms, categories, products, recommendations, offers, MOCK_WISHLIST };
+export { MOCK_ROOMS, MOCK_CATEGORIES, MOCK_PRODUCTS, MOCK_RECOMMENDATIONS, MOCK_OFFERS, MOCK_WISHLIST };
