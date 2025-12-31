@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-x: 36px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 48px;
+
+  --text-primary: #171717;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+
+  --text-primary-dark: #e8e1e1;
+  --text-secondary-dark: #dbd0d0;
+  --text-tertiary-dark: #c2b3b3;
+
+  --text-xxs: 12px;
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-xxl: 32px;
+}
+
+/* Oculta la scrollbar pero mantiene el scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+
+
