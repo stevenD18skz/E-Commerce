@@ -52,31 +52,33 @@ export default function ProductDetails({ product }: { product: Product }) {
   }, [formData.image]);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-[var(--spacing-md)]">
+    <div className="flex">
       {/* Left Column - Gallery */}
-      <div className="w-full lg:w-[50%] space-y-[var(--spacing-md)]">
+      <div className="w-[50%] space-y-[var(--spacing-sm)]">
         {/* Main Image */}
-        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-zoom-in">
+        <div className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-zoom-in">
           <Image
             src={product.images[formData.image]}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-all duration-300 group-hover:scale-110"
             priority
           />
         </div>
 
         {/* Thumbnails Carousel */}
-        <div ref={scrollContainerRef} className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 snap-x">
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-[var(--spacing-xs)] overflow-x-auto scrollbar-hide snap-x">
           {product.images.map((image, index) => (
             <button
               key={index}
               onClick={() => setFormData({ ...formData, image: index })}
               className={clsx(
-                "relative flex-shrink-0 w-32 h-32 rounded-2xl overflow-hidden border-2 transition-all snap-start",
+                "relative flex-shrink-0 w-32 h-32 rounded-xl overflow-hidden border-2 transition-all duration-300 snap-start",
                 formData.image === index
                   ? "border-neutral-900 opacity-100"
-                  : "border-transparent opacity-70 hover:opacity-100"
+                  : "border-transparent opacity-60 hover:opacity-100"
               )}
             >
               <Image
@@ -88,66 +90,48 @@ export default function ProductDetails({ product }: { product: Product }) {
             </button>
           ))}
         </div>
-      </div>
+      </div>  
 
       {/* Right Column - Product Info */}
-      <div className="w-full lg:w-[50%] space-y-[var(--spacing-md)]">
+      <div className="w-[50%] px-[var(--spacing-md)] space-y-[var(--spacing-sm)]">
         {/* Header */}
-        <div className="flex justify-between items-start">
-          <div>
-            <h1 className="text-4xl font-light text-[var(--text-primary)] mb-2 tracking-tight">
-              {product.name}
-            </h1>
+        <h2 className="text-5xl font-light tracking-tight">
+          {product.name}
+        </h2>
 
-            <div className="flex items-center gap-2">
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={clsx(
-                      "w-4 h-4",
-                      i < Math.floor(product.rating) ? "fill-current" : "text-neutral-200 fill-neutral-200"
-                    )}
-                  />
-                ))}
-              </div>
-              <span className="text-sm text-[var(--text-secondary)] font-medium underline underline-offset-4 cursor-pointer hover:text-[var(--text-primary)]">
-                {product.reviews} reseñas
-              </span>
-            </div>
-
-            {extraData.offer ? (
-              <div className="">
-                <p className="text-2xl font-medium text-rose-500">
-                  {formatPrice(product.price - (product.price * extraData.offer.discount / 100))}
-                </p>
-                <p className="text-lg font-medium text-[var(--text-primary)] line-through italic">
-                  {formatPrice(product.price)}
-                </p>
-              </div>
-            ) : (
-              <p className="text-lg font-medium text-[var(--text-primary)]">
-                {formatPrice(product.price)}
-              </p>
-            )
-            }
+        <div className="flex items-center gap-[var(--spacing-xs)]">
+          <div className="flex text-amber-400">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className={clsx(
+                  "w-4 h-4",
+                  i < Math.floor(product.rating) ? "fill-current" : "text-neutral-200 fill-neutral-200"
+                )}
+              />
+            ))}
           </div>
-
-          <button
-            onClick={() => setExtraData({ ...extraData, wishlist: true })}
-            className="p-3 hover:bg-neutral-100 rounded-full transition-colors group"
-            aria-label="Add to favorites"
-          >
-            <Heart
-              className={clsx(
-                "w-6 h-6 transition-colors",
-                extraData.wishlist
-                  ? "fill-red-500 text-red-500"
-                  : "text-neutral-400 group-hover:text-neutral-600"
-              )}
-            />
-          </button>
+          <span className="text-sm text-[var(--text-secondary)] font-medium underline underline-offset-4 cursor-pointer hover:text-[var(--text-primary)]">
+            {product.reviews} reseñas
+          </span>
         </div>
+
+
+        {extraData.offer ? (
+          <div className="">
+            <p className="text-3xl font-semibold text-rose-500">
+              {formatPrice(product.price - (product.price * extraData.offer.discount / 100))}
+            </p>
+            <p className="text-lg font-medium text-[var(--text-primary)] line-through italic">
+              {formatPrice(product.price)}
+            </p>
+          </div>
+        ) : (
+          <p className="text-3xl font-medium text-[var(--text-primary)]">
+            {formatPrice(product.price)}
+          </p>
+        )
+        }
 
         {/* Description */}
         <div className="prose prose-neutral">
@@ -156,46 +140,43 @@ export default function ProductDetails({ product }: { product: Product }) {
           </p>
         </div>
 
-        {/* Options */}
-        <div className="">
-          {/* Colors */}
-          <div>
-            <span className="text-sm font-medium text-[var(--text-primary)] block">Color</span>
-            <div className="flex gap-3">
-              {product.colors.map((color) => (
-                <button
-                  key={color}
-                  onClick={() => setFormData({ ...formData, color: color })}
-                  className={clsx(
-                    "w-10 h-10 rounded-full border-2 transition-all ring-offset-2",
-                    formData.color === color ? "border-neutral-900 scale-110" : "border-transparent hover:scale-105"
-                  )}
-                  style={{ backgroundColor: color }}
-                  aria-label={`Select color ${color}`}
-                />
-              ))}
-            </div>
+        {/* Colors */}
+        <div>
+          <span className="text-sm font-medium text-[var(--text-primary)] block">Color</span>
+          <div className="flex gap-3">
+            {product.colors.map((color) => (
+              <button
+                key={color}
+                onClick={() => setFormData({ ...formData, color: color })}
+                className={clsx(
+                  "w-10 h-10 rounded-full border-2 transition-all ring-offset-2",
+                  formData.color === color ? "border-neutral-900 scale-110" : "border-transparent hover:scale-105"
+                )}
+                style={{ backgroundColor: color }}
+                aria-label={`Select color ${color}`}
+              />
+            ))}
           </div>
+        </div>
 
-          {/* Sizes (Mockup mainly for furniture dimensions usually, but kept for logic consistency) */}
-          <div>
-            <span className="text-sm font-medium text-[var(--text-primary)] block">Tamaño</span>
-            <div className="flex gap-3">
-              {sizes.map((size) => (
-                <button
-                  key={size}
-                  onClick={() => setFormData({ ...formData, size: size })}
-                  className={clsx(
-                    "w-12 h-10 rounded-lg text-sm font-medium transition-all border",
-                    formData.size === size
-                      ? "bg-neutral-900 text-white border-neutral-900"
-                      : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
-                  )}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+        {/* Sizes (Mockup mainly for furniture dimensions usually, but kept for logic consistency) */}
+        <div>
+          <span className="text-sm font-medium text-[var(--text-primary)] block">Tamaño</span>
+          <div className="flex gap-3">
+            {sizes.map((size) => (
+              <button
+                key={size}
+                onClick={() => setFormData({ ...formData, size: size })}
+                className={clsx(
+                  "w-20 h-12 rounded-xl bg-neutral-200 text-sm font-medium transition-all border",
+                  formData.size === size
+                    ? "bg-neutral-900 text-white border-neutral-900"
+                    : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400"
+                )}
+              >
+                {size}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -220,6 +201,20 @@ export default function ProductDetails({ product }: { product: Product }) {
 
           <button className="flex-1 bg-neutral-900 text-white font-medium rounded-full h-14 hover:bg-black transition-all shadow-lg shadow-neutral-900/10 active:scale-[0.98]">
             Añadir al carrito
+          </button>
+          <button
+            onClick={() => setExtraData({ ...extraData, wishlist: true })}
+            className="border border-neutral-200 rounded-full px-4 py-2 hover:bg-neutral-100 transition-colors group"
+            aria-label="Add to favorites"
+          >
+            <Heart
+              className={clsx(
+                "w-6 h-6 transition-colors",
+                extraData.wishlist
+                  ? "fill-red-500 text-red-500"
+                  : "text-neutral-400 group-hover:text-neutral-600"
+              )}
+            />
           </button>
         </div>
 

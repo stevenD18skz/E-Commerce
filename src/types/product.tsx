@@ -12,6 +12,7 @@ interface Product {
         time: string;
         cost: number;
     };
+    brand?: string;
 }
 
-export type {Product};
+export type { Product };

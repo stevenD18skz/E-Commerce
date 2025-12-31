@@ -2,6 +2,7 @@
 
 import { products } from "@/lib/data";
 import ProductDetails from "@/app/p/[product]/components/product-details";
+import ProductReviews from "@/app/p/[product]/components/reviews";
 import CarrouselProducts from "@/components/CarrouselProducts";
 
 interface PageProps {
@@ -30,8 +31,11 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 w-full">
+    <div className="max-w-7xl mx-auto py-[var(--spacing-lg)] w-full">
       <ProductDetails product={product} />
+
+      <ProductReviews />
+
       <CarrouselProducts
         recommendations={products}
         title="You may also like"

@@ -621,6 +621,7 @@ const products = [
       time: "5 - 7 weeks",
       cost: 50,
     },
+    brand: "IKEA",
   },
   {
     id: "sofia-sofa",
@@ -642,6 +643,7 @@ const products = [
       time: "3-5 weeks",
       cost: 0,
     },
+    brand: "Ashley Furniture",
   },
 
   {
@@ -664,6 +666,7 @@ const products = [
       time: "6-8 weeks",
       cost: 35,
     },
+    brand: "Herman Miller",
   },
 
   {
@@ -686,6 +689,7 @@ const products = [
       time: "2-4 weeks",
       cost: 25,
     },
+    brand: "West Elm",
   },
 
   {
@@ -708,6 +712,7 @@ const products = [
       time: "8-10 weeks",
       cost: 75,
     },
+    brand: "Pottery Barn",
   },
 
   {
@@ -730,6 +735,7 @@ const products = [
       time: "4-6 weeks",
       cost: 45,
     },
+    brand: "IKEA",
   },
 
   {
@@ -752,6 +758,7 @@ const products = [
       time: "10-12 weeks",
       cost: 99,
     },
+    brand: "Ashley Furniture",
   },
   {
     id: "modern-fridge",
@@ -1169,55 +1176,55 @@ const offers = [
 ];
 
 const MOCK_WISHLIST: Product[] = [
-    {
-        id: "chair-1",
-        name: "Silla Eames Lounge",
-        category: "Sillas",
-        price: 1200,
-        reviews: 124,
-        rating: 4.8,
-        description: "Iconic comfort and style.",
-        colors: ["#000000", "#ffffff"],
-        images: ["https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=2787&auto=format&fit=crop"],
-        delivery: { time: "3-5 días", cost: 0 },
-    },
-    {
-        id: "lamp-2",
-        name: "Lámpara Arco Floor",
-        category: "Iluminación",
-        price: 450,
-        reviews: 89,
-        rating: 4.6,
-        description: "Modern lighting for any room.",
-        colors: ["#silver"],
-        images: ["https://images.unsplash.com/photo-1507473888900-52e1ad154f96?q=80&w=2800&auto=format&fit=crop"],
-        delivery: { time: "2-4 días", cost: 20 },
-    },
-    {
-        id: "sofa-3",
-        name: "Sofá Chesterfield",
-        category: "Sofás",
-        price: 2100,
-        reviews: 56,
-        rating: 4.9,
-        description: "Classic design with deep button tufting.",
-        colors: ["#5d4037"],
-        images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2940&auto=format&fit=crop"],
-        delivery: { time: "7-10 días", cost: 0 },
-    },
-    {
-        id: "table-4",
-        name: "Mesa de Café Noguchi",
-        category: "Mesas",
-        price: 850,
-        reviews: 42,
-        rating: 4.7,
-        description: "A perfect balance of art and furniture.",
-        colors: ["#wood"],
-        images: ["https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=2868&auto=format&fit=crop"],
-        delivery: { time: "5-7 días", cost: 50 },
-    },
-    ...products,
+  {
+    id: "chair-1",
+    name: "Silla Eames Lounge",
+    category: "Sillas",
+    price: 1200,
+    reviews: 124,
+    rating: 4.8,
+    description: "Iconic comfort and style.",
+    colors: ["#000000", "#ffffff"],
+    images: ["https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=2787&auto=format&fit=crop"],
+    delivery: { time: "3-5 días", cost: 0 },
+  },
+  {
+    id: "lamp-2",
+    name: "Lámpara Arco Floor",
+    category: "Iluminación",
+    price: 450,
+    reviews: 89,
+    rating: 4.6,
+    description: "Modern lighting for any room.",
+    colors: ["#silver"],
+    images: ["https://images.unsplash.com/photo-1507473888900-52e1ad154f96?q=80&w=2800&auto=format&fit=crop"],
+    delivery: { time: "2-4 días", cost: 20 },
+  },
+  {
+    id: "sofa-3",
+    name: "Sofá Chesterfield",
+    category: "Sofás",
+    price: 2100,
+    reviews: 56,
+    rating: 4.9,
+    description: "Classic design with deep button tufting.",
+    colors: ["#5d4037"],
+    images: ["https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2940&auto=format&fit=crop"],
+    delivery: { time: "7-10 días", cost: 0 },
+  },
+  {
+    id: "table-4",
+    name: "Mesa de Café Noguchi",
+    category: "Mesas",
+    price: 850,
+    reviews: 42,
+    rating: 4.7,
+    description: "A perfect balance of art and furniture.",
+    colors: ["#wood"],
+    images: ["https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=2868&auto=format&fit=crop"],
+    delivery: { time: "5-7 días", cost: 50 },
+  },
+  ...products,
 ];
 
 export { rooms, categories, products, recommendations, offers, MOCK_WISHLIST };
