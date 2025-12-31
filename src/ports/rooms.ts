@@ -1,5 +1,5 @@
-import { Room } from "@/types/room";
-import Category from "@/types/categories";
+import { Room, Category } from "@/types/room";
+
 import {
     MOCK_ROOMS,
     MOCK_CATEGORIES,
@@ -38,7 +38,7 @@ export const getCategoriesByRoom = async (roomId: string): Promise<Category[]> =
  */
 export const getDesignsByRoom = async (roomId: string) => {
     await new Promise(resolve => setTimeout(resolve, SIMULATED_DELAY));
-    return MOCK_ROOMS.find((room) => room.id === roomId)?.designs || [];
+    return MOCK_PREBUILT_DESIGNS.filter((design) => design.roomId === roomId);
 };
 
 /**
@@ -46,5 +46,5 @@ export const getDesignsByRoom = async (roomId: string) => {
  */
 export const getTipsByRoom = async (roomId: string) => {
     await new Promise(resolve => setTimeout(resolve, SIMULATED_DELAY));
-    return MOCK_ROOMS.find((room) => room.id === roomId)?.tips || [];
+    return MOCK_TIPS.filter((tip) => tip.roomId === roomId);
 };
