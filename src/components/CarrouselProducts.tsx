@@ -55,8 +55,8 @@ export default function CarrouselProducts({
   };
 
   return (
-    <section className="py-12 md:py-16 mx-auto w-full max-w-[100vw] overflow-hidden">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-10 px-4 md:px-8 lg:px-16 gap-4">
+    <section className="w-full max-w-[100vw] overflow-hidden">
+      <div className="flex justify-between items-center">
         <div className="space-y-2 max-w-2xl">
           <h2 className="text-3xl font-light tracking-tight text-neutral-900 leading-tight">
             {title}
@@ -88,7 +88,7 @@ export default function CarrouselProducts({
       <div className="relative group/carousel">
         <div
           ref={containerRef}
-          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 px-4 md:px-8 lg:px-16 pb-12"
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-6 "
           style={{ scrollPaddingLeft: "2rem", scrollPaddingRight: "2rem" }}
         >
           {recommendations.map((product) => (
@@ -98,7 +98,7 @@ export default function CarrouselProducts({
             >
               <div className="group relative flex flex-col h-full gap-4">
                 {/* Image Card */}
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-neutral-100">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-neutral-100">
                   <Link href={`/p/${product.id}`} className="block h-full w-full">
                     <Image
                       src={product.images[0]}

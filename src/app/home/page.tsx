@@ -3,20 +3,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Timer } from "lucide-react";
-import { getAllRooms } from "@/ports/rooms";
-import { getAllOffers, getRecommendations } from "@/ports/products";
+import { useEffect, useState } from "react";
 
-
-
+import { useCurrency } from "@/context/CurrencyContext";
 
 import CarrouselProducts from "@/components/CarrouselProducts";
 import HeroCarousel from "@/app/home/components/HeroCarousel";
 import HomeSkeleton from "./components/HomeSkeleton";
 
-import { useCurrency } from "@/context/CurrencyContext";
-import { useEffect, useState } from "react";
 import { Room } from "@/types/room";
 import { Product, Offer } from "@/types/product";
+import { getAllRooms } from "@/ports/rooms";
+import { getAllOffers, getRecommendations } from "@/ports/products";
 
 export default function Page() {
   const { formatPrice } = useCurrency();
@@ -28,6 +26,7 @@ export default function Page() {
 
   useEffect(() => {
     setLoading(true);
+
     // Use Promise.all to fetch all data in parallel
     Promise.all([
       getAllRooms(),
@@ -183,13 +182,11 @@ export default function Page() {
         </section>
 
         {/* Recommendations Section */}
-        <section className="">
-          <CarrouselProducts
-            recommendations={recommendations}
-            title={"Productos destacados"}
-            description={"Diseños exclusivos seleccionados para ti"}
-          />
-        </section>
+        <CarrouselProducts
+          recommendations={recommendations}
+          title={"Productos destacados"}
+          description={"Diseños exclusivos seleccionados para ti"}
+        />
       </main>
     </div>
   );
